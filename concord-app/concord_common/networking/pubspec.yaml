@@ -1,0 +1,23 @@
+name: networking
+description: A new Flutter package project.
+version: 0.0.1
+author: "concord"
+homepage: "www.concord.com.br"
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  concord_foundation:
+    path: ../../concord_foundation
+
+  dio: 4.0.0
+
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

@@ -1,0 +1,28 @@
+name: concord_arch
+description: A new Flutter package project.
+version: 0.0.1
+author: "concord"
+homepage: "www.concord.com.br"
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  bloc: 7.0.0
+
+  concord_foundation:
+    path: ../concord_foundation
+
+  flutter:
+    sdk: flutter
+
+  flutter_bloc: 7.0.1
+  
+  navigation:
+    path: navigation
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

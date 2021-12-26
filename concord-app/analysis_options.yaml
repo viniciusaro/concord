@@ -1,0 +1,15 @@
+include: .analysis_options/flutter_lints_local.yaml
+
+analyzer:
+  exclude: [build/**]
+  language:
+    strict-raw-types: true
+  strong-mode:
+    implicit-casts: false
+  errors:
+    implementation_imports: error
+    unnecessary_cast: ignore
+
+linter:
+  rules:
+    - cancel_subscriptions    

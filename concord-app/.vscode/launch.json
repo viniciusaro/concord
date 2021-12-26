@@ -1,0 +1,203 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "concord_arch",
+            "cwd": "concord_arch",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "concord_arch (profile mode)",
+            "cwd": "concord_arch",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "concord_foundation",
+            "cwd": "concord_foundation",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "concord_foundation (profile mode)",
+            "cwd": "concord_foundation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "concord_ui",
+            "cwd": "concord_ui",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "concord_ui (profile mode)",
+            "cwd": "concord_ui",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "main",
+            "cwd": "apps/main",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "main (profile mode)",
+            "cwd": "apps/main",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "navigation",
+            "cwd": "concord_arch/navigation",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "navigation (profile mode)",
+            "cwd": "concord_arch/navigation",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "auth",
+            "cwd": "concord_common/auth",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "auth (profile mode)",
+            "cwd": "concord_common/auth",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "networking",
+            "cwd": "concord_common/networking",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "networking (profile mode)",
+            "cwd": "concord_common/networking",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "shared_models",
+            "cwd": "concord_common/shared_models",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "shared_models (profile mode)",
+            "cwd": "concord_common/shared_models",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "storage",
+            "cwd": "concord_common/storage",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "storage (profile mode)",
+            "cwd": "concord_common/storage",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "base_exceptions",
+            "cwd": "concord_foundation/base_exceptions",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "base_exceptions (profile mode)",
+            "cwd": "concord_foundation/base_exceptions",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "helper_types",
+            "cwd": "concord_foundation/helper_types",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "helper_types (profile mode)",
+            "cwd": "concord_foundation/helper_types",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "type_extensions",
+            "cwd": "concord_foundation/type_extensions",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "type_extensions (profile mode)",
+            "cwd": "concord_foundation/type_extensions",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "global",
+            "cwd": "concord_ui/global",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "global (profile mode)",
+            "cwd": "concord_ui/global",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "tokens",
+            "cwd": "concord_ui/tokens",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "tokens (profile mode)",
+            "cwd": "concord_ui/tokens",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "chat",
+            "cwd": "features/chat",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "chat (profile mode)",
+            "cwd": "features/chat",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        }
+    ]
+}

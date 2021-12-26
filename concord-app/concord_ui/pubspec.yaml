@@ -1,0 +1,33 @@
+name: concord_ui
+description: A new Flutter package project.
+version: 0.0.1
+author: "concord"
+homepage: "www.concord.com.br"
+publish_to: none
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  global_library:
+    path: global_library
+
+  networking:
+    path: ../concord_common/networking
+  
+  scaffold_ui:
+    path: scaffold_ui
+
+  storage:
+    path: ../concord_common/storage
+
+  tokens:
+    path: tokens
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

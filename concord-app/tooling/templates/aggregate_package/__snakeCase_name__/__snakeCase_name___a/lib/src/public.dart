@@ -1,0 +1,3 @@
+class Public{{pascalCase name}} {
+  
+}

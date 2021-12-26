@@ -1,0 +1,19 @@
+{
+    "dart.analysisExcludedFolders": [
+        "tooling",
+    ],
+    "[dart]": {
+        "editor.formatOnSave": true,
+    },
+    "blueprint.templatesPath": [
+        "tooling/templates"
+    ],
+    "files.exclude": {
+        "**/.packages": true,
+        "**/*.dart_tool": true,
+        "**/.flutter-plugins**": true,
+        "**/main.iml": true,
+        "**/.metadata": true,
+        "**/.idea": true,
+    },
+}
