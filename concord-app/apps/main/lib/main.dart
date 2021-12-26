@@ -9,7 +9,6 @@ import 'package:login/login.dart';
 import 'main_register.dart';
 
 part 'main_init.dart';
-
 Future<void> main() async {
   await initialize();
 

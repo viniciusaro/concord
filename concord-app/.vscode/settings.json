@@ -1,4 +1,5 @@
 {
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
     "dart.analysisExcludedFolders": [
         "tooling",
     ],
@@ -15,5 +16,11 @@
         "**/main.iml": true,
         "**/.metadata": true,
         "**/.idea": true,
+    },
+    "files.watcherExclude": {
+        "**/.fvm": true
+    },
+    "search.exclude": {
+        "**/.fvm": true
     },
 }

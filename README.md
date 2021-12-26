@@ -24,5 +24,5 @@ dart pub global activate melos
 
 Bootstrap Project
 ```shell
-melos bootstrap
+fvm flutter pub global run melos bootstrap
 ```
