@@ -24,6 +24,9 @@ dependencies:
   type_extensions:
     path: type_extensions
 
+  serialization:
+    path: serialization
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

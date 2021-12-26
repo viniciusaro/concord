@@ -10,7 +10,9 @@ class {{pascalCase name}}Bloc extends Bloc<{{pascalCase name}}Event, {{pascalCas
   {{pascalCase name}}Bloc(this._{{camelCase name}}Repository) : super({{pascalCase name}}State());
 
   @override
-  Stream<{{pascalCase name}}State> mapEventToState({{pascalCase name}}Event event) {
-    return const Stream.empty();
+  Stream<{{pascalCase name}}State> mapEventToState({{pascalCase name}}Event event) async* {
+    if (event is {{pascalCase name}}EventStart) {
+      // handle
+    }
   }
 }

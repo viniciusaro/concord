@@ -1,1 +1,3 @@
-class LoginEvent {}
+abstract class LoginEvent {}
+
+class LoginEventStart implements LoginEvent {}
