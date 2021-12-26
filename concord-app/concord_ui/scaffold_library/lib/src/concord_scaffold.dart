@@ -1,9 +1,15 @@
 import 'package:concord_foundation/concord_foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'concord_container.dart';
-import 'concord_padding.dart';
 export 'concord_padding.dart';
+import 'concord_theme.dart';
+
+enum ConcordScaffoldStatusBarStyle {
+  light,
+  dark,
+}
 
 class ConcordScaffold extends StatelessWidget {
   final Widget body;
@@ -16,6 +22,8 @@ class ConcordScaffold extends StatelessWidget {
   final double grid;
   final ConcordPadding padding;
   final ConcordEdges edges;
+  final Color? color;
+  final ConcordScaffoldStatusBarStyle statusBarStyle;
 
   const ConcordScaffold({
     Key? key,
@@ -27,15 +35,21 @@ class ConcordScaffold extends StatelessWidget {
     this.grid = 8,
     this.padding = ConcordPadding.p0,
     this.edges = ConcordEdges.leftRight,
+    this.color,
+    this.statusBarStyle = ConcordScaffoldStatusBarStyle.light,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ConcordContainer(
-        padding: padding,
-        edges: edges,
-        child: _bodyWidget(context),
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: statusBarStyle.overlay,
+        child: ConcordContainer(
+          padding: padding,
+          edges: edges,
+          color: color ?? ConcordTheme.of(context).colors.primary,
+          child: _bodyWidget(context),
+        ),
       ),
     );
   }
@@ -54,5 +68,16 @@ class ConcordScaffold extends StatelessWidget {
 
   Widget _errorWidget(BuildContext context) {
     return errorBuilder?.call(context) ?? Container();
+  }
+}
+
+extension on ConcordScaffoldStatusBarStyle {
+  SystemUiOverlayStyle get overlay {
+    switch (this) {
+      case ConcordScaffoldStatusBarStyle.light:
+        return SystemUiOverlayStyle.light;
+      case ConcordScaffoldStatusBarStyle.dark:
+        return SystemUiOverlayStyle.dark;
+    }
   }
 }

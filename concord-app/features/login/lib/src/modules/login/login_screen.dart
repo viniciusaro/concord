@@ -14,9 +14,8 @@ class LoginScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ConcordActionButton(
+          ConcordPrimaryActionButton(
             title: "Login com Vini",
-            color: Colors.blue,
             onTap: onLoginButtonTapped,
           ),
         ],

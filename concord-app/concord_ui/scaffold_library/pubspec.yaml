@@ -12,6 +12,9 @@ dependencies:
   concord_foundation:
     path: ../../concord_foundation
 
+  token_library:
+    path: ../token_library
+
   flutter:
     sdk: flutter
 

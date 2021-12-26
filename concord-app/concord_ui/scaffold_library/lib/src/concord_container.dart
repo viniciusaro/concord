@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'concord_padding.dart';
 
@@ -29,6 +28,33 @@ class ConcordContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(
+      color: color,
+      child: _bodyWidget(),
+    );
+  }
+
+  Widget _bodyWidget() {
+    return _wrapperWidget(
+      _shrinkWrapWidget(child),
+    );
+  }
+
+  Widget _wrapperWidget(Widget child) {
+    return onTap == null
+        ? _paddingWidget(child)
+        : RawMaterialButton(
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            fillColor: color,
+            elevation: 0,
+            highlightElevation: 0,
+            onPressed: onTap,
+            child: _paddingWidget(child),
+            constraints: const BoxConstraints(minHeight: 0, minWidth: 0),
+          );
+  }
+
+  Widget _paddingWidget(Widget child) {
     final edgeInsets = EdgeInsets.only(
       left: grid * padding.left - edges.leftDiscount,
       top: grid * padding.top - edges.topDiscount,
@@ -36,33 +62,10 @@ class ConcordContainer extends StatelessWidget {
       bottom: grid * padding.bottom - edges.leftDiscount,
     );
 
-    return Container(
-      color: color,
-      child: Padding(
-        padding: edgeInsets,
-        child: _bodyWidget(),
-      ),
+    return Padding(
+      padding: edgeInsets,
+      child: child,
     );
-  }
-
-  Widget _bodyWidget() {
-    return _onTapWidget(
-      _shrinkWrapWidget(child),
-    );
-  }
-
-  Widget _onTapWidget(Widget child) {
-    return onTap == null
-        ? child
-        : RawMaterialButton(
-            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            fillColor: color,
-            elevation: 0,
-            highlightElevation: 0,
-            onPressed: onTap,
-            child: child,
-            constraints: const BoxConstraints(minHeight: 0, minWidth: 0),
-          );
   }
 
   Widget _shrinkWrapWidget(Widget child) {

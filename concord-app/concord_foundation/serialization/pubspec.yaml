@@ -15,8 +15,5 @@ dependencies:
   freezed_annotation: 1.1.0
 
 dev_dependencies:
-  concord_foundation_dev:
-    path: ../../concord_foundation_dev
-
   flutter_test:
     sdk: flutter

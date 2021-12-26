@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart' hide Container;
 import 'package:get_it/get_it.dart';
 
 import 'package:concord_foundation/concord_foundation.dart';
@@ -29,5 +28,8 @@ Future<void> main() async {
   final homeModule = container.getter<LoginModule>();
   final home = homeModule.build();
 
-  runApp(ConcordApp(child: home));
+  runApp(ConcordApp(
+    child: home,
+    theme: defaultConcordTheme,
+  ));
 }
