@@ -109,10 +109,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  scaffold_ui:
+  scaffold_library:
     dependency: "direct main"
     description:
-      path: "../scaffold_ui"
+      path: "../scaffold_library"
       relative: true
     source: path
     version: "0.0.1"

@@ -1,4 +1,4 @@
-import 'package:flutter/widgets.dart';
+import 'package:scaffold_library/scaffold_library.dart';
 
 class ConcordText extends StatelessWidget {
   final String text;

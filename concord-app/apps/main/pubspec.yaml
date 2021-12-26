@@ -21,8 +21,8 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  auth:
-    path: ../../concord_common/auth
+  concord_core:
+    path: ../../concord_core
 
   concord_foundation:
     path: ../../concord_foundation

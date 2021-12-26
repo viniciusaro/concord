@@ -10,20 +10,17 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  auth:
-    path: ../../concord_common/auth
-
   concord_arch:
     path: ../../concord_arch
+
+  concord_core:
+    path: ../../concord_core
 
   concord_ui:
     path: ../../concord_ui
 
   flutter:
     sdk: flutter
-
-  shared_models:
-    path: ../../concord_common/shared_models
 
 dev_dependencies:
   flutter_test:

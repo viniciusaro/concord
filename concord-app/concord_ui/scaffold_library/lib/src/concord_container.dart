@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'concord_padding.dart';
@@ -11,7 +12,9 @@ class ConcordContainer extends StatelessWidget {
   final ConcordPadding padding;
   final ConcordEdges edges;
 
+  final Color? color;
   final bool shrinkWrap;
+  final VoidCallback? onTap;
 
   const ConcordContainer({
     Key? key,
@@ -19,7 +22,9 @@ class ConcordContainer extends StatelessWidget {
     this.grid = 8,
     this.padding = ConcordPadding.p0,
     this.edges = ConcordEdges.all,
+    this.color,
     this.shrinkWrap = false,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -31,13 +36,36 @@ class ConcordContainer extends StatelessWidget {
       bottom: grid * padding.bottom - edges.leftDiscount,
     );
 
-    return Padding(
-      padding: edgeInsets,
-      child: _bodyWidget(),
+    return Container(
+      color: color,
+      child: Padding(
+        padding: edgeInsets,
+        child: _bodyWidget(),
+      ),
     );
   }
 
   Widget _bodyWidget() {
+    return _onTapWidget(
+      _shrinkWrapWidget(child),
+    );
+  }
+
+  Widget _onTapWidget(Widget child) {
+    return onTap == null
+        ? child
+        : RawMaterialButton(
+            materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            fillColor: color,
+            elevation: 0,
+            highlightElevation: 0,
+            onPressed: onTap,
+            child: child,
+            constraints: const BoxConstraints(minHeight: 0, minWidth: 0),
+          );
+  }
+
+  Widget _shrinkWrapWidget(Widget child) {
     return shrinkWrap ? Wrap(children: [child]) : child;
   }
 }

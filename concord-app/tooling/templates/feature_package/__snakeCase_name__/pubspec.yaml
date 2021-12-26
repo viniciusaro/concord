@@ -13,14 +13,14 @@ dependencies:
   {{ $org }}_arch:
     path: ../../{{ $org }}_arch
 
+  {{ $org }}_core:
+    path: ../../{{ $org }}_core
+
   {{ $org }}_ui:
     path: ../../{{ $org }}_ui
 
   flutter:
     sdk: flutter
-
-  shared_models:
-    path: ../../{{ $org }}_common/shared_models
 
 dev_dependencies:
   flutter_test:

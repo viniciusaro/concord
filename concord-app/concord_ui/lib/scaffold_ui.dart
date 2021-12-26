@@ -1,3 +1,3 @@
-library scaffold_ui;
+library scaffold_library;
 
-export 'package:scaffold_ui/scaffold_ui.dart';
+export 'package:scaffold_library/scaffold_library.dart';

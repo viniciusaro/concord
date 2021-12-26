@@ -71,52 +71,52 @@
         },
         {
             "name": "auth",
-            "cwd": "concord_common/auth",
+            "cwd": "concord_core/auth",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "auth (profile mode)",
-            "cwd": "concord_common/auth",
+            "cwd": "concord_core/auth",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "networking",
-            "cwd": "concord_common/networking",
+            "cwd": "concord_core/networking",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "networking (profile mode)",
-            "cwd": "concord_common/networking",
+            "cwd": "concord_core/networking",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "shared_models",
-            "cwd": "concord_common/shared_models",
+            "cwd": "concord_core/shared_models",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "shared_models (profile mode)",
-            "cwd": "concord_common/shared_models",
+            "cwd": "concord_core/shared_models",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
             "name": "storage",
-            "cwd": "concord_common/storage",
+            "cwd": "concord_core/storage",
             "request": "launch",
             "type": "dart"
         },
         {
             "name": "storage (profile mode)",
-            "cwd": "concord_common/storage",
+            "cwd": "concord_core/storage",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"

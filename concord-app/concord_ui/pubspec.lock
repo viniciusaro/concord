@@ -126,7 +126,7 @@ packages:
   networking:
     dependency: "direct main"
     description:
-      path: "../concord_common/networking"
+      path: "../concord_core/networking"
       relative: true
     source: path
     version: "0.0.1"
@@ -137,10 +137,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
-  scaffold_ui:
+  scaffold_library:
     dependency: "direct main"
     description:
-      path: scaffold_ui
+      path: scaffold_library
       relative: true
     source: path
     version: "0.0.1"
@@ -166,7 +166,7 @@ packages:
   storage:
     dependency: "direct main"
     description:
-      path: "../concord_common/storage"
+      path: "../concord_core/storage"
       relative: true
     source: path
     version: "0.0.1"
@@ -198,10 +198,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
-  tokens:
+  token_library:
     dependency: "direct main"
     description:
-      path: tokens
+      path: token_library
       relative: true
     source: path
     version: "0.0.1"

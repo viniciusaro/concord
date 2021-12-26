@@ -1,6 +1,6 @@
-library scaffold_ui;
+library scaffold_library;
 
-export 'package:flutter/widgets.dart';
+export 'package:flutter/material.dart';
 
 export 'src/concord_app.dart';
 export 'src/concord_container.dart';

@@ -9,9 +9,9 @@ packages:
     source: hosted
     version: "2.6.1"
   auth:
-    dependency: "direct main"
+    dependency: transitive
     description:
-      path: "../../concord_common/auth"
+      path: "../../concord_core/auth"
       relative: true
     source: path
     version: "0.0.1"
@@ -68,6 +68,13 @@ packages:
     dependency: transitive
     description:
       path: "../../concord_arch"
+      relative: true
+    source: path
+    version: "0.0.1"
+  concord_core:
+    dependency: "direct main"
+    description:
+      path: "../../concord_core"
       relative: true
     source: path
     version: "0.0.1"
@@ -250,7 +257,7 @@ packages:
   networking:
     dependency: transitive
     description:
-      path: "../../concord_common/networking"
+      path: "../../concord_core/networking"
       relative: true
     source: path
     version: "0.0.1"
@@ -275,17 +282,17 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
-  scaffold_ui:
+  scaffold_library:
     dependency: transitive
     description:
-      path: "../../concord_ui/scaffold_ui"
+      path: "../../concord_ui/scaffold_library"
       relative: true
     source: path
     version: "0.0.1"
   shared_models:
     dependency: transitive
     description:
-      path: "../../concord_common/shared_models"
+      path: "../../concord_core/shared_models"
       relative: true
     source: path
     version: "0.0.1"
@@ -311,7 +318,7 @@ packages:
   storage:
     dependency: transitive
     description:
-      path: "../../concord_common/storage"
+      path: "../../concord_core/storage"
       relative: true
     source: path
     version: "0.0.1"
@@ -343,10 +350,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
-  tokens:
+  token_library:
     dependency: transitive
     description:
-      path: "../../concord_ui/tokens"
+      path: "../../concord_ui/token_library"
       relative: true
     source: path
     version: "0.0.1"

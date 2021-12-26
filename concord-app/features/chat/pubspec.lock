@@ -85,6 +85,20 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  di:
+    dependency: transitive
+    description:
+      path: "../../concord_foundation/di"
+      relative: true
+    source: path
+    version: "0.0.1"
+  dio:
+    dependency: transitive
+    description:
+      name: dio
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -109,10 +123,10 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  global:
+  global_library:
     dependency: transitive
     description:
-      path: "../../concord_ui/global"
+      path: "../../concord_ui/global_library"
       relative: true
     source: path
     version: "0.0.1"
@@ -123,6 +137,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  http_parser:
+    dependency: transitive
+    description:
+      name: http_parser
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -154,7 +175,7 @@ packages:
   networking:
     dependency: transitive
     description:
-      path: "../../concord_common/networking"
+      path: "../../concord_core/networking"
       relative: true
     source: path
     version: "0.0.1"
@@ -172,10 +193,17 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
+  scaffold_library:
+    dependency: transitive
+    description:
+      path: "../../concord_ui/scaffold_library"
+      relative: true
+    source: path
+    version: "0.0.1"
   shared_models:
     dependency: "direct main"
     description:
-      path: "../../concord_common/shared_models"
+      path: "../../concord_core/shared_models"
       relative: true
     source: path
     version: "0.0.1"
@@ -201,7 +229,7 @@ packages:
   storage:
     dependency: transitive
     description:
-      path: "../../concord_common/storage"
+      path: "../../concord_core/storage"
       relative: true
     source: path
     version: "0.0.1"
@@ -240,10 +268,17 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0"
-  tokens:
+  token_library:
     dependency: transitive
     description:
-      path: "../../concord_ui/tokens"
+      path: "../../concord_ui/token_library"
+      relative: true
+    source: path
+    version: "0.0.1"
+  type_extensions:
+    dependency: transitive
+    description:
+      path: "../../concord_foundation/type_extensions"
       relative: true
     source: path
     version: "0.0.1"

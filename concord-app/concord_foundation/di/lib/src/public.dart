@@ -11,18 +11,11 @@ mixin Register {
   void register(Getter get, Setter set);
 }
 
-class AggregateRegister {
-  final DependencyContainer container;
-  final List<Register> registers;
-
-  AggregateRegister(this.container, this.registers);
-
-  void register() {
-    for (final register in registers) {
-      register.register(
-        container.getter,
-        container.setter,
-      );
-    }
+register(DependencyContainer container, List<Register> registers) {
+  for (final register in registers) {
+    register.register(
+      container.getter,
+      container.setter,
+    );
   }
 }

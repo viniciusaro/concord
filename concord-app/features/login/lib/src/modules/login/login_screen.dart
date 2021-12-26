@@ -12,7 +12,14 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConcordScaffold(
       body: Column(
-        children: const [],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ConcordActionButton(
+            title: "Login com Vini",
+            color: Colors.blue,
+            onTap: onLoginButtonTapped,
+          ),
+        ],
       ),
     );
   }

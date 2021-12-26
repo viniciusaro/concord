@@ -1,4 +1,4 @@
-name: audio_player
+name: scaffold_library
 description: A new Flutter package project.
 version: 0.0.1
 author: "concord"
@@ -10,6 +10,9 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  concord_foundation:
+    path: ../../concord_foundation
+
   flutter:
     sdk: flutter
 

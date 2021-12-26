@@ -13,8 +13,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  scaffold_ui:
-    path: ../scaffold_ui
+  scaffold_library:
+    path: ../scaffold_library
     
 dev_dependencies:
   flutter_test:

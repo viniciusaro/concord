@@ -1,4 +1,4 @@
-name: scaffold_ui
+name: concord_core
 description: A new Flutter package project.
 version: 0.0.1
 author: "concord"
@@ -10,11 +10,20 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  concord_foundation:
-    path: ../../concord_foundation
+  auth:
+    path: auth
 
   flutter:
     sdk: flutter
+
+  networking:
+    path: networking
+
+  shared_models:
+    path: shared_models
+
+  storage:
+    path: storage
 
 dev_dependencies:
   flutter_test:

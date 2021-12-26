@@ -17,16 +17,16 @@ dependencies:
     path: global_library
 
   networking:
-    path: ../concord_common/networking
+    path: ../concord_core/networking
   
-  scaffold_ui:
-    path: scaffold_ui
+  scaffold_library:
+    path: scaffold_library
 
   storage:
-    path: ../concord_common/storage
+    path: ../concord_core/storage
 
-  tokens:
-    path: tokens
+  token_library:
+    path: token_library
 
 dev_dependencies:
   flutter_test:
