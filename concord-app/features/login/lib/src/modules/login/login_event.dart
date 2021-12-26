@@ -1,3 +1,3 @@
 abstract class LoginEvent {}
 
-class LoginEventStart implements LoginEvent {}
+class LoginEventSignIn implements LoginEvent {}

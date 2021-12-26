@@ -9,9 +9,6 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  concord_foundation:
-    path: ../../concord_foundation
-
   token_library:
     path: ../token_library
 

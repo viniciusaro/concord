@@ -6,6 +6,6 @@ part '{{ snakeCase name }}.freezed.dart';
 class {{ pascalCase name }}State with _${{ pascalCase name }}State {
   factory {{ pascalCase name }}State({
     @Default(false) bool loading,
-    required Object error,
+    @Default(null) Object? error,
   }) = _{{ pascalCase name }}State;
 }

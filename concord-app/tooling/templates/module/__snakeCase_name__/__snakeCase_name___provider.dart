@@ -25,15 +25,21 @@ class _{{pascalCase name}}ProviderState extends State<{{pascalCase name}}Provide
   void initState() {
     super.initState();
     _bloc = {{pascalCase name}}Bloc(widget.{{camelCase name}}Repository);
+    _bloc.add({{pascalCase name}}EventStart());
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => _bloc,
-      child: BlocBuilder<{{pascalCase name}}Bloc, {{pascalCase name}}State>(builder: (context, state) {
-        return const {{pascalCase name}}Screen();
-      }),
+      child: BlocListener<{{pascalCase name}}Bloc, {{pascalCase name}}State>(
+        listener: (context, state) {
+          //
+        },
+        child: BlocBuilder<{{pascalCase name}}Bloc, {{pascalCase name}}State>(builder: (context, state) {
+          return {{pascalCase name}}Screen(state: state);
+        }),
+      ),
     );
   }
 }

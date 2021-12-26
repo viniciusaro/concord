@@ -1,6 +1,7 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:login/data.dart';
 import 'package:flutter/widgets.dart';
+import 'package:login/src/modules/login/login_event.dart';
 
 import 'login_bloc.dart';
 import 'login_screen.dart';
@@ -31,11 +32,21 @@ class _LoginProviderState extends State<LoginProvider> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => _bloc,
-      child: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-        return LoginScreen(onLoginButtonTapped: () {
+      child: BlocListener<LoginBloc, LoginState>(
+        listener: (context, state) {
           //
-        });
-      }),
+        },
+        child: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
+          return LoginScreen(
+            state: state,
+            onLoginButtonTapped: _handleLoginTap,
+          );
+        }),
+      ),
     );
+  }
+
+  void _handleLoginTap() {
+    _bloc.add(LoginEventSignIn());
   }
 }

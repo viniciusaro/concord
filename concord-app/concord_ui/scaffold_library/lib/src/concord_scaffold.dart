@@ -1,4 +1,3 @@
-import 'package:concord_foundation/concord_foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,7 +16,7 @@ class ConcordScaffold extends StatelessWidget {
   final WidgetBuilder? errorBuilder;
 
   final bool loading;
-  final BaseException? exception;
+  final Object? error;
 
   final double grid;
   final ConcordPadding padding;
@@ -31,7 +30,7 @@ class ConcordScaffold extends StatelessWidget {
     this.loadingBuilder,
     this.errorBuilder,
     this.loading = false,
-    this.exception,
+    this.error,
     this.grid = 8,
     this.padding = ConcordPadding.p0,
     this.edges = ConcordEdges.leftRight,
@@ -57,7 +56,7 @@ class ConcordScaffold extends StatelessWidget {
   Widget _bodyWidget(BuildContext context) {
     return loading
         ? _loadingWidget(context)
-        : exception != null
+        : error != null
             ? _errorWidget(context)
             : body;
   }

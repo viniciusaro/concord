@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'concord_padding.dart';
 
@@ -69,6 +70,6 @@ class ConcordContainer extends StatelessWidget {
   }
 
   Widget _shrinkWrapWidget(Widget child) {
-    return shrinkWrap ? Wrap(children: [child]) : child;
+    return child;
   }
 }

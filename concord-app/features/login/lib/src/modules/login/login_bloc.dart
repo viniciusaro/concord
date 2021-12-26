@@ -11,8 +11,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
-    if (event is LoginEventStart) {
-      await _loginRepository.signIn("vini");
+    if (event is LoginEventSignIn) {
+      yield state.copyWith(submitting: true);
+      try {
+        final user = await _loginRepository.signIn("vini");
+        yield state.copyWith(user: user, submitting: false);
+      } catch (e) {
+        yield state.copyWith(error: e);
+      }
     }
   }
 }
