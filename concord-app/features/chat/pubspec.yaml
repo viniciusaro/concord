@@ -1,6 +1,7 @@
 name: chat
 description: A new Flutter package project.
 version: 0.0.1
+author: "concord"
 homepage: "www.concord.com.br"
 publish_to: none
 
@@ -9,21 +10,22 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  chat_data:
-    path: data
-
   concord_arch:
     path: ../../concord_arch
+
+  concord_core:
+    path: ../../concord_core
+
+  concord_ui:
+    path: ../../concord_ui
 
   flutter:
     sdk: flutter
 
-  shared_models:
-    path: ../../concord_core/shared_models
-
-  team_library:
-    path: team_library
-
 dev_dependencies:
+  build_runner: 2.1.7
+
   flutter_test:
     sdk: flutter
+
+  freezed: 1.1.0

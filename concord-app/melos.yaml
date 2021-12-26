@@ -1,0 +1,12 @@
+name: concord-app
+
+packages:
+  - apps/**
+  - concord_arch/**
+  - concord_core/**
+  - concord_foundation/**
+  - concord_ui/**
+  - features/**
+
+scripts:
+  postbootstrap: sh .melos/postbootstrap.sh

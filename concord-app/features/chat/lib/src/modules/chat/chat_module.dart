@@ -1,4 +1,4 @@
-import 'package:chat_data/data.dart';
+import 'package:chat/data.dart';
 
 import 'chat_provider.dart';
 

@@ -1,3 +1,4 @@
 library chat;
 
-export 'src/chat/chat_module.dart';
+export 'src/di/chat_register.dart';
+export 'src/modules/chat/chat_module.dart';

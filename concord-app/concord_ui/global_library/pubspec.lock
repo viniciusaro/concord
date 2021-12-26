@@ -110,7 +110,7 @@ packages:
     source: path
     version: "0.0.1"
   serialization:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/serialization"
       relative: true

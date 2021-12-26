@@ -96,7 +96,7 @@ packages:
     source: hosted
     version: "1.8.0"
   serialization:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/serialization"
       relative: true

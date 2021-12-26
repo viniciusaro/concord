@@ -3,6 +3,7 @@ import 'package:{{ $package }}/data.dart';
 import 'package:flutter/widgets.dart';
 
 import '{{snakeCase name}}_bloc.dart';
+import '{{snakeCase name}}_event.dart';
 import '{{snakeCase name}}_screen.dart';
 import '{{snakeCase name}}_state.dart';
 
