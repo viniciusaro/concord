@@ -1,28 +1,21 @@
 # Concord App
-## Installation Instructions
+## Install Dependencies
 
 Enter concord-app directory
-```
+```shell
 cd concord-app
 ```
 
-Install [FVM](https://fvm.app/docs/getting_started/overview):
+Setup
 ```shell
-brew tap leoafarias/fvm
-brew install fvm
+make setup
 ```
 
-Install Flutter
+### Clean and Bootstrap
+If for some reason you need to clean the current project environment, just clean and bootstrap.
 ```shell
-fvm install
+make clean
 ```
-
-Install [Melos](https://melos.invertase.dev)
 ```shell
-dart pub global activate melos
-```
-
-Bootstrap Project
-```shell
-fvm flutter pub global run melos bootstrap
+make bootstrap
 ```
