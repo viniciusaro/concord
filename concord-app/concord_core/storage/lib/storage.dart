@@ -1,3 +1,5 @@
 library storage;
 
-export 'src/public.dart';
+export 'di/storage_register.dart';
+
+export 'src/storage_client.dart';

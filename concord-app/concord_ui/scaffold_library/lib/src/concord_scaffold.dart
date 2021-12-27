@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:scaffold_library/src/concord_loading_provider.dart';
 
 import 'concord_container.dart';
 export 'concord_padding.dart';
@@ -62,7 +63,11 @@ class ConcordScaffold extends StatelessWidget {
   }
 
   Widget _loadingWidget(BuildContext context) {
-    return loadingBuilder?.call(context) ?? Container();
+    return Center(
+      child: loadingBuilder?.call(context) ??
+          ConcordLoadingProvider.of(context)?.loadingBuilder(context) ??
+          Container(),
+    );
   }
 
   Widget _errorWidget(BuildContext context) {

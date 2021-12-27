@@ -11,11 +11,23 @@ mixin Register {
   void register(Getter get, Setter set);
 }
 
-register(DependencyContainer container, List<Register> registers) {
+mixin RootLoader<T> {
+  Future<T> load(Getter get, Setter set);
+}
+
+Future<bool> load<T>(
+  DependencyContainer container,
+  RootLoader<T> rootRegister,
+  List<Register> Function(T) registersBuilder,
+) async {
+  final registers = registersBuilder(await rootRegister.load(
+    container.getter,
+    container.setter,
+  ));
+
   for (final register in registers) {
-    register.register(
-      container.getter,
-      container.setter,
-    );
+    register.register(container.getter, container.setter);
   }
+
+  return true;
 }
