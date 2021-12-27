@@ -17,7 +17,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         final user = await _loginRepository.signIn("vini");
         yield state.copyWith(user: user, submitting: false);
       } catch (e) {
-        yield state.copyWith(error: e);
+        yield state.copyWith(error: e, submitting: false);
       }
     }
   }

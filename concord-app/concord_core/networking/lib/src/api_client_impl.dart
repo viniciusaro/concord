@@ -17,7 +17,7 @@ class ApiClientImpl with ApiClient {
   @override
   Future<T> request<T>(Target target, Deserializer<T> deserializer) {
     return requestData(target)
-        .mapError(ApiError.fromError)
+        .mapError(ApiErrorX.fromError)
         .map((response) => response.toMap())
         .map(deserializer);
   }

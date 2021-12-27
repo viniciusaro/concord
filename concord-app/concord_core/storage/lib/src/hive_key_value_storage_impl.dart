@@ -12,10 +12,8 @@ class HiveKeyValueStorageImpl with KeyValueStorage {
 
   @override
   Future<Map<String, dynamic>> get(String key) {
-    if (box.containsKey(key)) {
-      return SynchronousFuture(box.get(key)!);
-    }
-    return Future.error(KeyNotFoundException());
+    return box.get(key)?.let((value) => SynchronousFuture(value)) ??
+        Future.error(KeyNotFoundError());
   }
 
   @override

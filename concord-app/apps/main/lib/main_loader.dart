@@ -12,7 +12,6 @@ class MainLoader with RootLoader<LoadResult> {
   Future<LoadResult> load(Getter get, Setter set) async {
     await Firebase.initializeApp();
     await Hive.initFlutter();
-    await Future.delayed(const Duration(seconds: 5));
 
     final mainBox = await Hive.openBox<Map<String, dynamic>>("main");
     return LoadResult(mainBox);

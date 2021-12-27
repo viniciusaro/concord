@@ -13,7 +13,7 @@
         "**/.packages": true,
         "**/*.dart_tool": true,
         "**/.flutter-plugins**": true,
-        "**/main.iml": true,
+        "**/*.iml": true,
         "**/.metadata": true,
         "**/.idea": true,
     },

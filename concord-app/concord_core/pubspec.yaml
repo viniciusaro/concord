@@ -12,6 +12,9 @@ dependencies:
   auth:
     path: auth
 
+  concord_foundation:
+    path: ../concord_foundation
+
   flutter:
     sdk: flutter
 

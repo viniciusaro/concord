@@ -1,5 +1,4 @@
 import 'package:concord_core/concord_core.dart';
-import 'package:concord_foundation/concord_foundation.dart';
 
 part 'login_state.freezed.dart';
 

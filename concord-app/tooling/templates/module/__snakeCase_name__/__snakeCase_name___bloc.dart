@@ -1,4 +1,4 @@
-import 'package:concord_arch/concord_arch.dart';
+import 'package:{{ $org }}_arch/{{ $org }}_arch.dart';
 import 'package:{{ $package }}/data.dart';
 
 import '{{snakeCase name}}_event.dart';

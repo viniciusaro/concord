@@ -30,6 +30,13 @@ class _SplashState extends State<Splash> {
     return const ConcordLoading();
   }
 
+  Widget splashBuilder() {
+    return ConcordScaffold(
+      loading: true,
+      body: Container(),
+    );
+  }
+
   ConcordTokens get theme {
     return defaultConcordTheme;
   }
@@ -41,7 +48,7 @@ class _SplashState extends State<Splash> {
         return ConcordApp(
           loadingBuilder: loadingBuilder,
           theme: theme,
-          child: snapshot.hasData ? widget.builder() : const SplashStateless(),
+          child: snapshot.hasData ? widget.builder() : splashBuilder(),
         );
       },
     );
@@ -50,17 +57,5 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return _widget;
-  }
-}
-
-class SplashStateless extends StatelessWidget {
-  const SplashStateless({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ConcordScaffold(
-      loading: true,
-      body: Container(),
-    );
   }
 }

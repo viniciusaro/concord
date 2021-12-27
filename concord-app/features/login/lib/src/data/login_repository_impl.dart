@@ -1,5 +1,4 @@
-import 'package:auth/auth.dart';
-import 'package:shared_models/shared_models.dart';
+import 'package:concord_core/concord_core.dart';
 
 import 'login_repository.dart';
 
@@ -12,6 +11,6 @@ class LoginRepositoryImpl implements LoginRepository {
 
   @override
   Future<AuthenticatedUser> signIn(String otp) {
-    return _authClient.signIn(otp);
+    return _authClient.signIn(otp).mapError((e) => LoginRepositoryError(e));
   }
 }

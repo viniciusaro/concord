@@ -12,7 +12,7 @@ class MemoryKeyValueStorageImpl with KeyValueStorage {
     final value = _storage[key];
     return value != null
         ? SynchronousFuture(value)
-        : Future.error(KeyNotFoundException());
+        : Future.error(KeyNotFoundError());
   }
 
   @override

@@ -5,4 +5,4 @@ abstract class KeyValueStorage {
   Future<Map<String, dynamic>> get(String key);
 }
 
-class KeyNotFoundException with BaseException {}
+class KeyNotFoundError with BaseError {}

@@ -1,14 +1,16 @@
+import 'dart:async';
+
 import 'package:get_it/get_it.dart';
 
-import 'package:concord_foundation/concord_foundation.dart';
 import 'package:concord_core/concord_core.dart';
 import 'package:concord_ui/concord_ui.dart';
 import 'package:login/login.dart';
 
+import 'main_error.dart';
 import 'main_loader.dart';
 import 'splash.dart';
 
-void main() {
+void loadAndRun() {
   final container = DependencyContainer(
     GetIt.instance.get,
     GetIt.instance.registerFactory,
@@ -27,4 +29,18 @@ void main() {
     ),
     builder: () => container.getter<LoginModule>().build(),
   ));
+}
+
+void main() {
+  runZonedGuarded(
+    () {
+      loadAndRun();
+    },
+    (e, s) {
+      // print("error! $e");
+    },
+    zoneSpecification: const ZoneSpecification(
+      handleUncaughtError: filteredHandleUncaughtError,
+    ),
+  );
 }
