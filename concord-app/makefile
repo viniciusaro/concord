@@ -12,3 +12,7 @@ bootstrap:
 
 clean:
 	fvm flutter pub global run melos clean
+
+watch: 
+	sh tooling/scripts/watch.sh features
+	sh tooling/scripts/watch.sh concord_ui/token_library

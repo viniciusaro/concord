@@ -1,14 +1,13 @@
 # Concord App
-## Install Dependencies
+Inside concord-app directory
 
-Enter concord-app directory
-```shell
-cd concord-app
-```
-
-Setup
+## Setup
 ```shell
 make setup
+```
+To generate all needed classes and also start watching for changes run:
+```shell
+make watch
 ```
 
 ### Clean and Bootstrap
@@ -18,4 +17,7 @@ make clean
 ```
 ```shell
 make bootstrap
+```
+```shell
+make watch
 ```
