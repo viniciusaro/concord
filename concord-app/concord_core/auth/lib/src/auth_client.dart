@@ -3,6 +3,7 @@ import 'package:shared_models/shared_models.dart';
 
 abstract class AuthClient {
   Future<AuthenticatedUser> signIn(String customToken);
+  Future<User> session();
 }
 
 abstract class AuthError extends BaseError {

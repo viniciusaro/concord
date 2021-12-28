@@ -12,22 +12,20 @@ mixin Register {
 }
 
 mixin RootLoader<T> {
-  Future<T> load(Getter get, Setter set);
+  Future<T> load();
 }
 
-Future<bool> load<T>(
+Future<T> load<T>(
   DependencyContainer container,
   RootLoader<T> rootRegister,
   List<Register> Function(T) registersBuilder,
 ) async {
-  final registers = registersBuilder(await rootRegister.load(
-    container.getter,
-    container.setter,
-  ));
+  final result = await rootRegister.load();
+  final registers = registersBuilder(result);
 
   for (final register in registers) {
     register.register(container.getter, container.setter);
   }
 
-  return true;
+  return result;
 }

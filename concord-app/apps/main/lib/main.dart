@@ -1,14 +1,17 @@
 import 'dart:async';
 
+import 'package:chat/chat.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:concord_core/concord_core.dart';
 import 'package:concord_ui/concord_ui.dart';
 import 'package:login/login.dart';
 
-import 'main_error.dart';
+import 'main_register.dart';
 import 'main_loader.dart';
 import 'splash.dart';
+
+part 'main_definitions.dart';
 
 void loadAndRun() {
   final container = DependencyContainer(
@@ -16,18 +19,24 @@ void loadAndRun() {
     GetIt.instance.registerFactory,
   );
 
-  runApp(Splash(
-    loader: () => load(
-      container,
-      MainLoader(),
-      (LoadResult result) => [
-        AuthRegister(),
-        NetworkingRegister(),
-        LoginRegister(),
-        StorageRegister(result.mainBox),
-      ],
+  runApp(ConcordApp(
+    loadingBuilder: loadingBuilder,
+    theme: theme,
+    child: Splash(
+      loader: () => load(
+        container,
+        MainLoader(),
+        (result) => [
+          MainRegister(result.user),
+          AuthRegister(),
+          NetworkingRegister(),
+          LoginRegister(),
+          ChatRegister(),
+          StorageRegister(result.mainBox),
+        ],
+      ),
+      builder: (_) => container.getter<Widget>(),
     ),
-    builder: () => container.getter<LoginModule>().build(),
   ));
 }
 

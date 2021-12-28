@@ -21,6 +21,9 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
+  chat:
+    path: ../../features/chat
+
   concord_core:
     path: ../../concord_core
 

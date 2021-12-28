@@ -1,19 +1,33 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_core/concord_core.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:hive_flutter/hive_flutter.dart';
 
 class LoadResult {
+  final User user;
   final Box<Map<String, dynamic>> mainBox;
-  LoadResult(this.mainBox);
+  LoadResult(this.user, this.mainBox);
 }
 
 class MainLoader with RootLoader<LoadResult> {
   @override
-  Future<LoadResult> load(Getter get, Setter set) async {
+  Future<LoadResult> load() async {
     await Firebase.initializeApp();
     await Hive.initFlutter();
 
-    final mainBox = await Hive.openBox<Map<String, dynamic>>("main");
-    return LoadResult(mainBox);
+    final user = loadUser();
+    final mainBox = await openBox();
+    return LoadResult(user, mainBox);
+  }
+}
+
+extension on MainLoader {
+  User loadUser() {
+    final uid = auth.FirebaseAuth.instance.currentUser?.uid;
+    return uid != null ? AuthenticatedUser(uid) : UnauthenticatedUser();
+  }
+
+  Future<Box<Map<String, dynamic>>> openBox() {
+    return Hive.openBox<Map<String, dynamic>>("main");
   }
 }

@@ -1,6 +1,12 @@
-import 'dart:async';
+part of 'main.dart';
 
-import 'package:concord_foundation/concord_foundation.dart';
+Widget loadingBuilder(BuildContext context) {
+  return const ConcordLoading();
+}
+
+ConcordTokens get theme {
+  return defaultConcordTheme;
+}
 
 void filteredHandleUncaughtError(
   Zone self,

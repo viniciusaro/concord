@@ -1,5 +1,3 @@
-import 'package:{{ $org }}_core/{{ $org }}_core.dart';
-
 import '{{snakeCase name}}_repository.dart';
 import 'models/{{snakeCase name}}.dart';
 

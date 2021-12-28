@@ -12,7 +12,7 @@ enum ConcordScaffoldStatusBarStyle {
 }
 
 class ConcordScaffold extends StatelessWidget {
-  final Widget body;
+  final Widget? body;
   final WidgetBuilder? loadingBuilder;
   final WidgetBuilder? errorBuilder;
 
@@ -27,7 +27,7 @@ class ConcordScaffold extends StatelessWidget {
 
   const ConcordScaffold({
     Key? key,
-    required this.body,
+    this.body,
     this.loadingBuilder,
     this.errorBuilder,
     this.loading = false,
@@ -54,7 +54,7 @@ class ConcordScaffold extends StatelessWidget {
     );
   }
 
-  Widget _bodyWidget(BuildContext context) {
+  Widget? _bodyWidget(BuildContext context) {
     return loading
         ? _loadingWidget(context)
         : error != null

@@ -5,7 +5,7 @@ import 'concord_padding.dart';
 export 'concord_padding.dart';
 
 class ConcordContainer extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
 
   final double grid;
   final ConcordPadding padding;
@@ -17,7 +17,7 @@ class ConcordContainer extends StatelessWidget {
 
   const ConcordContainer({
     Key? key,
-    required this.child,
+    this.child,
     this.grid = 8,
     this.padding = ConcordPadding.p0,
     this.edges = ConcordEdges.all,
@@ -34,10 +34,15 @@ class ConcordContainer extends StatelessWidget {
     );
   }
 
-  Widget _bodyWidget() {
-    return _wrapperWidget(
-      _shrinkWrapWidget(child),
-    );
+  Widget? _bodyWidget() {
+    final child = this.child;
+
+    if (child != null) {
+      return _wrapperWidget(
+        _shrinkWrapWidget(child),
+      );
+    }
+    return null;
   }
 
   Widget _wrapperWidget(Widget child) {

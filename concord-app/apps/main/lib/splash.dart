@@ -1,7 +1,8 @@
 import 'package:concord_ui/concord_ui.dart';
+import 'package:main/main_loader.dart';
 
-typedef InitLoader = Future<bool> Function();
-typedef InitWidgetBuilder = Widget Function();
+typedef InitLoader = Future<LoadResult> Function();
+typedef InitWidgetBuilder = Widget Function(LoadResult);
 
 class Splash extends StatefulWidget {
   final InitLoader loader;
@@ -26,10 +27,6 @@ class _SplashState extends State<Splash> {
     _widget = _buildOnce();
   }
 
-  Widget loadingBuilder(BuildContext context) {
-    return const ConcordLoading();
-  }
-
   Widget splashBuilder() {
     return ConcordScaffold(
       loading: true,
@@ -37,20 +34,12 @@ class _SplashState extends State<Splash> {
     );
   }
 
-  ConcordTokens get theme {
-    return defaultConcordTheme;
-  }
-
   Widget _buildOnce() {
-    return FutureBuilder<bool>(
+    return FutureBuilder<LoadResult>(
       future: widget.loader(),
-      builder: (context, snapshot) {
-        return ConcordApp(
-          loadingBuilder: loadingBuilder,
-          theme: theme,
-          child: snapshot.hasData ? widget.builder() : splashBuilder(),
-        );
-      },
+      builder: (_, snapshot) => snapshot.hasData
+          ? widget.builder(snapshot.requireData)
+          : splashBuilder(),
     );
   }
 

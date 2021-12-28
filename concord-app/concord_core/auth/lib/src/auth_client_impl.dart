@@ -1,6 +1,6 @@
 import 'package:concord_foundation/concord_foundation.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:networking/networking.dart';
 import 'package:shared_models/shared_models.dart';
 
@@ -23,6 +23,16 @@ class AuthClientImpl implements AuthClient {
     });
   }
 
+  @override
+  Future<User> session() {
+    final uid = _auth.currentUser?.uid;
+    return uid != null
+        ? SynchronousFuture(AuthenticatedUser(uid))
+        : SynchronousFuture(UnauthenticatedUser());
+  }
+}
+
+extension on AuthClientImpl {
   Future<AuthenticatedUser> signInWithFirebase(String token) async {
     final target = AuthTarget.signIn(token);
     final signInResponse = await _api.request(target, SignInResponse.fromMap);
