@@ -1,5 +1,5 @@
-import 'models/{{snakeCase name}}.dart';
+import 'models/{{ snakeCase name }}.dart';
 
-abstract class {{pascalCase name}}Repository {
-  Stream<{{pascalCase name}}> {{camelCase name}}();
+abstract class {{ pascalCase name }}Repository {
+  Stream<{{ pascalCase name }}> {{camelCase name}}();
 }

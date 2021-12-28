@@ -1,3 +1,3 @@
-library {{snakeCase name}}_a;
+library {{ snakeCase name }}_a;
 
 export 'src/public.dart';

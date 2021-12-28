@@ -1,4 +1,4 @@
-name: {{snakeCase name}}
+name: {{ snakeCase name }}
 description: A new Flutter package project.
 version: 0.0.1
 homepage: "www.concord.com.br"
@@ -9,8 +9,8 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  {{snakeCase name}}_a:
-    path: {{snakeCase name}}_a
+  {{ snakeCase name }}_a:
+    path: {{ snakeCase name }}_a
 
   flutter:
     sdk: flutter

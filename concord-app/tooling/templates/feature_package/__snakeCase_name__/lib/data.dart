@@ -1,7 +1,7 @@
-library {{snakeCase name}}_data;
+library {{ snakeCase name }}_data;
 
 // repos
-export 'src/data/{{snakeCase name}}_repository.dart';
+export 'src/data/{{ snakeCase name }}_repository.dart';
 
 // models
-export 'src/data/models/{{snakeCase name}}.dart';
+export 'src/data/models/{{ snakeCase name }}.dart';

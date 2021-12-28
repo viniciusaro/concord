@@ -21,6 +21,9 @@ dependencies:
   networking:
     path: networking
 
+  realtime_database:
+    path: realtime_database
+    
   shared_models:
     path: shared_models
 

@@ -7,6 +7,6 @@ class ChatRegister with Register {
   @override
   void register(Getter get, Setter set) {
     set(() => ChatModule(get()));
-    set(() => ChatRepositoryImpl() as ChatRepository);
+    set(() => ChatRepositoryImpl(get(), get()) as ChatRepository);
   }
 }

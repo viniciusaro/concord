@@ -1,6 +1,6 @@
 import 'package:{{ $package }}/team_library.dart';
 
-import '{{snakeCase name}}_state.dart';
+import '{{ snakeCase name }}_state.dart';
 
 class {{ pascalCase name }}Screen extends StatelessWidget {
   final {{ pascalCase name }}State state;

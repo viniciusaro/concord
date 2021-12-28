@@ -1,3 +1,3 @@
-class Public{{pascalCase name}} {
+class Public{{ pascalCase name }} {
   
 }

@@ -32,6 +32,7 @@ void loadAndRun() {
           NetworkingRegister(),
           LoginRegister(),
           ChatRegister(),
+          RealtimeDatabaseRegister(),
           StorageRegister(result.mainBox),
         ],
       ),

@@ -1,1 +1,1 @@
-class {{pascalCase name}}Target {}
+class {{ pascalCase name }}Target {}

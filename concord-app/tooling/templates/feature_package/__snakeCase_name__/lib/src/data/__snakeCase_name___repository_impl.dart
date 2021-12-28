@@ -1,11 +1,11 @@
-import '{{snakeCase name}}_repository.dart';
-import 'models/{{snakeCase name}}.dart';
+import '{{ snakeCase name }}_repository.dart';
+import 'models/{{ snakeCase name }}.dart';
 
-export '{{snakeCase name}}_repository.dart';
+export '{{ snakeCase name }}_repository.dart';
 
-class {{pascalCase name}}RepositoryImpl implements {{pascalCase name}}Repository {
+class {{ pascalCase name }}RepositoryImpl implements {{ pascalCase name }}Repository {
   @override
-  Stream<{{pascalCase name}}> {{camelCase name}}() {
+  Stream<{{ pascalCase name }}> {{camelCase name}}() {
     throw UnimplementedError();
   }
 }
