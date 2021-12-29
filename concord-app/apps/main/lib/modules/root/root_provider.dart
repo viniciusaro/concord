@@ -14,14 +14,14 @@ class RootProvider extends StatefulWidget {
 
   final AuthClient authClient;
   final LoginModule loginModule;
-  final ChatModule chatModule;
+  final ChatListModule chatListModule;
 
   const RootProvider({
     Key? key,
     required this.user,
     required this.authClient,
     required this.loginModule,
-    required this.chatModule,
+    required this.chatListModule,
   }) : super(key: key);
 
   @override
@@ -45,7 +45,7 @@ class _RootProviderState extends State<RootProvider> {
       child: BlocBuilder<RootBloc, RootState>(
         builder: (context, state) {
           final child = state.isLoggedIn == true
-              ? widget.chatModule.build()
+              ? widget.chatListModule.build()
               : widget.loginModule.build(onLoggedIn: _handleLoggedIn);
 
           return ConcordLogoutProvider(

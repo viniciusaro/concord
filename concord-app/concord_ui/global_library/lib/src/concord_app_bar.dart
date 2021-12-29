@@ -5,6 +5,7 @@ import 'concord_text.dart';
 
 class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
   final String title;
+  final bool? canPop;
   final List<Widget>? actions;
 
   @override
@@ -13,6 +14,7 @@ class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
   const ConcordAppBar({
     Key? key,
     required this.title,
+    this.canPop,
     this.actions,
   }) : super(key: key);
 
@@ -28,13 +30,17 @@ class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
       icon: Icons.arrow_back_sharp,
     );
 
-    final leading = navigator.canPop() ? backButton : const SizedBox();
-    final actions = this.actions?.map((action) => Center(child: action));
+    final leading = canPop != false && navigator.canPop()
+        ? Center(child: backButton)
+        : const SizedBox();
+
+    final actions =
+        this.actions?.map((action) => Center(child: action)).toList();
 
     return AppBar(
       title: title,
       leading: leading,
-      actions: actions?.toList(),
+      actions: actions,
       backgroundColor: theme.colors.secondary,
     );
   }

@@ -9,10 +9,12 @@ import 'chat_input_screen.dart';
 import 'chat_input_state.dart';
 
 class ChatInputProvider extends StatefulWidget {
+  final String id;
   final ChatRepository chatRepository;
 
   const ChatInputProvider({
     Key? key,
+    required this.id,
     required this.chatRepository,
   }) : super(key: key);
 
@@ -27,7 +29,7 @@ class _ChatInputProviderState extends State<ChatInputProvider> {
   @override
   void initState() {
     super.initState();
-    _bloc = ChatInputBloc(widget.chatRepository);
+    _bloc = ChatInputBloc(widget.id, widget.chatRepository);
     _bloc.add(ChatInputEventStart());
   }
 

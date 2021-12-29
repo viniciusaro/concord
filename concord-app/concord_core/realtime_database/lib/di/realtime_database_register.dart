@@ -12,7 +12,7 @@ class RealtimeDatabaseRegister with Register {
       instance.settings = const Settings(persistenceEnabled: true);
       return instance;
     });
-    set(() => FirestoreChatResource(get()) as ChatRealtimeResource);
+    set(() => FirestoreChatResource(get(), get()) as ChatRealtimeResource);
     set(() => FirestoreChatCollectionResource(get())
         as ChatCollectionRealtimeResource);
   }

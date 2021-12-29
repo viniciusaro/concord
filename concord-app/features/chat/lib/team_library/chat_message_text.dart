@@ -1,5 +1,6 @@
-import 'package:chat/data.dart';
 import 'package:concord_ui/concord_ui.dart';
+
+import 'package:chat/data.dart';
 
 class ChatMessageText extends StatelessWidget {
   final ChatMessage message;

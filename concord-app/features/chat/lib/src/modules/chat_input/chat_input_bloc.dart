@@ -6,9 +6,10 @@ import 'chat_input_event.dart';
 import 'chat_input_state.dart';
 
 class ChatInputBloc extends Bloc<ChatInputEvent, ChatInputState> {
+  final String id;
   final ChatRepository _chatRepository;
 
-  ChatInputBloc(this._chatRepository) : super(ChatInputState());
+  ChatInputBloc(this.id, this._chatRepository) : super(ChatInputState());
 
   @override
   Stream<ChatInputState> mapEventToState(ChatInputEvent event) async* {
@@ -19,10 +20,7 @@ class ChatInputBloc extends Bloc<ChatInputEvent, ChatInputState> {
           error: false,
           clearText: TransientValue(true),
         );
-        await _chatRepository.send(
-          "61CKHq63L5a7EGxBxJZD",
-          ChatMessageSend(message: event.text),
-        );
+        await _chatRepository.send(id, ChatMessageSend(message: event.text));
       } catch (e) {
         yield state.copyWith(error: true);
       } finally {

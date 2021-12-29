@@ -7,11 +7,12 @@ import 'chat_event.dart';
 import 'chat_state.dart';
 
 class ChatBloc extends Bloc<ChatEvent, ChatState> {
+  final String id;
   final ChatRepository _chatRepository;
 
   StreamSubscription<List<ChatMessage>>? _chatMessageSubscription;
 
-  ChatBloc(this._chatRepository) : super(ChatState());
+  ChatBloc(this.id, this._chatRepository) : super(ChatState());
 
   @override
   Stream<ChatState> mapEventToState(ChatEvent event) async* {
@@ -25,8 +26,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 
   void _listenToMessages() {
     _chatMessageSubscription?.cancel();
-    _chatMessageSubscription =
-        _chatRepository.messages("61CKHq63L5a7EGxBxJZD").listen((messages) {
+    _chatMessageSubscription = _chatRepository.messages(id).listen((messages) {
       add(_ChatEventState(state.copyWith(messages: messages)));
     });
   }

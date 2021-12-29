@@ -9,6 +9,9 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  auth:
+    path: ../auth
+
   cloud_firestore: 3.1.5
 
   concord_foundation:

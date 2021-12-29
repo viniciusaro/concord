@@ -27,12 +27,6 @@ class ChatScreen extends StatelessWidget {
       padding: EdgeInsets.zero,
     );
 
-    final logoutButton = ConcordPrimaryIconButton(
-      icon: Icons.settings,
-      onTap: () =>
-          ConcordLogoutProvider.of(context)?.onLogoutButtonTapped(context),
-    );
-
     final body = Column(
       children: [
         Expanded(child: list),
@@ -42,7 +36,7 @@ class ChatScreen extends StatelessWidget {
     );
 
     return ConcordScaffold(
-      appBar: ConcordAppBar(title: "Conversa", actions: [logoutButton]),
+      appBar: const ConcordAppBar(title: "Conversa"),
       loading: state.loading,
       error: state.error,
       body: body,

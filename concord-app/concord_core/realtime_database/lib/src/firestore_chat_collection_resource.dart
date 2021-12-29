@@ -1,15 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:realtime_database/src/firestore_collections.dart';
 import 'package:serialization/serialization.dart';
 
+import 'firestore_collections.dart';
 import 'realtime_resource.dart';
 
 export 'realtime_resource.dart';
-
-class FirestoreChatCollectionLocation {
-  final String chats;
-  FirestoreChatCollectionLocation(this.chats);
-}
 
 class FirestoreChatCollectionResource
     implements ChatCollectionRealtimeResource {
@@ -19,7 +14,15 @@ class FirestoreChatCollectionResource
 
   @override
   Stream<List<T>> documents<T>(Deserializer<T> deserializer) {
-    return _firestore.collection(Collections.chat).snapshots().map((query) =>
-        query.docs.map((document) => deserializer(document.data())).toList());
+    return _firestore
+        .collection(Collections.chats)
+        .snapshots()
+        .map((query) => query.docs
+            .map((document) => {
+                  ...{"id": document.id},
+                  ...document.data(),
+                })
+            .map(deserializer)
+            .toList());
   }
 }

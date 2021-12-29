@@ -5,6 +5,7 @@ abstract class AuthClient {
   Future<User> signIn(String customToken);
   Future<User> signOut();
   Future<User> session();
+  Future<String?> userIdOrNull();
 }
 
 abstract class AuthError extends BaseError {

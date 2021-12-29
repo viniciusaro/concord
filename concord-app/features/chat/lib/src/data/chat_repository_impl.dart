@@ -1,7 +1,7 @@
 import 'package:concord_core/concord_core.dart';
 
 import 'chat_repository.dart';
-import 'models/chat_collection.dart';
+import 'models/chat.dart';
 import 'models/chat_message.dart';
 import 'models/chat_message_send.dart';
 
@@ -17,8 +17,8 @@ class ChatRepositoryImpl implements ChatRepository {
   );
 
   @override
-  Stream<List<ChatCollection>> chats() {
-    return _chatCollectionRealtimeResource.documents(ChatCollection.fromMap);
+  Stream<List<Chat>> chats() {
+    return _chatCollectionRealtimeResource.documents(Chat.fromMap);
   }
 
   @override

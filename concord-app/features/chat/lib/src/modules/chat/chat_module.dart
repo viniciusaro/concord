@@ -12,8 +12,9 @@ class ChatModule {
     this._chatInputModule,
   );
 
-  ChatProvider build() {
+  ChatProvider build({required String id}) {
     return ChatProvider(
+      id: id,
       chatRepository: _chatRepository,
       chatInputModule: _chatInputModule,
     );

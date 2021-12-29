@@ -1,6 +1,7 @@
 import 'package:{{ $org }}_arch/concord_arch.dart';
+
 import 'package:{{ $package }}/data.dart';
-import 'package:flutter/widgets.dart';
+import 'package:{{ $package }}/team_library.dart';
 
 import '{{ snakeCase name }}_bloc.dart';
 import '{{ snakeCase name }}_event.dart';

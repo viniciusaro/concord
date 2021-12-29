@@ -7,12 +7,12 @@ import 'root_provider.dart';
 class RootModule {
   final AuthClient _authClient;
 
-  final ChatModule _chatModule;
+  final ChatListModule _chatListModule;
   final LoginModule _loginModule;
 
   RootModule(
     this._authClient,
-    this._chatModule,
+    this._chatListModule,
     this._loginModule,
   );
 
@@ -20,7 +20,7 @@ class RootModule {
     return RootProvider(
       user: user,
       authClient: _authClient,
-      chatModule: _chatModule,
+      chatListModule: _chatListModule,
       loginModule: _loginModule,
     );
   }

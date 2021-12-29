@@ -10,11 +10,13 @@ import 'chat_screen.dart';
 import 'chat_state.dart';
 
 class ChatProvider extends StatefulWidget {
+  final String id;
   final ChatRepository chatRepository;
   final ChatInputModule chatInputModule;
 
   const ChatProvider({
     Key? key,
+    required this.id,
     required this.chatRepository,
     required this.chatInputModule,
   }) : super(key: key);
@@ -29,7 +31,7 @@ class _ChatProviderState extends State<ChatProvider> {
   @override
   void initState() {
     super.initState();
-    _bloc = ChatBloc(widget.chatRepository);
+    _bloc = ChatBloc(widget.id, widget.chatRepository);
     _bloc.add(ChatEventStart());
   }
 
@@ -45,7 +47,7 @@ class _ChatProviderState extends State<ChatProvider> {
           return ChatScreen(
             state: state,
             renderer: ChatMessageRenderer.fromMessage(),
-            inputWidget: widget.chatInputModule.build(),
+            inputWidget: widget.chatInputModule.build(id: widget.id),
           );
         }),
       ),
