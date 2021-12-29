@@ -16,7 +16,9 @@ class ConcordText extends StatelessWidget {
 
     return Text(
       text,
-      style: TextStyle(color: color ?? theme.colors.primaryText),
+      style: TextStyle(
+        color: color ?? theme.colors.primaryText,
+      ),
     );
   }
 }

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:scaffold_library/src/concord_loading_provider.dart';
-import 'package:scaffold_library/src/concord_theme.dart';
+import 'package:scaffold_library/scaffold_library.dart';
 import 'package:token_library/token_library.dart';
 
 class ConcordApp extends StatelessWidget {
@@ -17,17 +15,15 @@ class ConcordApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final loadingSetup = ConcordLoadingProvider(
-      child: child,
-      loadingBuilder: loadingBuilder,
-    );
-
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: ConcordTheme(
         tokens: theme,
-        child: loadingSetup,
+        child: ConcordLoadingProvider(
+          loadingBuilder: loadingBuilder,
+          child: child,
+        ),
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

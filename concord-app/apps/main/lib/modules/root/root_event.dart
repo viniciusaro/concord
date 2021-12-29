@@ -8,3 +8,5 @@ class RootEventLoggedIn implements RootEvent {
   final User user;
   RootEventLoggedIn(this.user);
 }
+
+class RootEventLogout implements RootEvent {}

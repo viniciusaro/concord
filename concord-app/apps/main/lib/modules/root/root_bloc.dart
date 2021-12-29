@@ -22,5 +22,13 @@ class RootBloc extends Bloc<RootEvent, RootState> {
     if (event is RootEventLoggedIn) {
       yield state.copyWith(user: event.user);
     }
+    if (event is RootEventLogout) {
+      try {
+        final user = await _authClient.signOut();
+        yield state.copyWith(user: user);
+      } catch (e) {
+        yield state.copyWith(error: e);
+      }
+    }
   }
 }

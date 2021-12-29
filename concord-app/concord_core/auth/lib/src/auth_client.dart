@@ -3,6 +3,7 @@ import 'package:shared_models/shared_models.dart';
 
 abstract class AuthClient {
   Future<User> signIn(String customToken);
+  Future<User> signOut();
   Future<User> session();
 }
 

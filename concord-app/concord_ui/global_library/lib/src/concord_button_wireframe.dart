@@ -23,8 +23,13 @@ class ConcordButtonWireframe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = ConcordTheme.of(context);
+
     final body = loading
-        ? const LoadingIndicator(indicatorType: Indicator.ballScale)
+        ? LoadingIndicator(
+            indicatorType: Indicator.ballScale,
+            colors: [theme.colors.primaryBackground],
+          )
         : content;
 
     return SizedBox(

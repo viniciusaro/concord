@@ -24,6 +24,15 @@ class AuthClientImpl implements AuthClient {
   }
 
   @override
+  Future<User> signOut() {
+    return _auth.signOut().map((_) => UnauthenticatedUser()).mapError((e) {
+      return e is FirebaseAuthException
+          ? AuthProviderError(e)
+          : AuthUnknownError(e);
+    });
+  }
+
+  @override
   Future<User> session() {
     final uid = _auth.currentUser?.uid;
     return uid != null

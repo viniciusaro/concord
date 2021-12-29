@@ -1,7 +1,8 @@
-import 'package:chat/chat.dart';
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_core/concord_core.dart';
-import 'package:flutter/widgets.dart';
+import 'package:concord_ui/concord_ui.dart';
+
+import 'package:chat/chat.dart';
 import 'package:login/login.dart';
 
 import 'root_bloc.dart';
@@ -43,11 +44,14 @@ class _RootProviderState extends State<RootProvider> {
       create: (_) => _bloc,
       child: BlocBuilder<RootBloc, RootState>(
         builder: (context, state) {
-          if (state.isLoggedIn == true) {
-            return widget.chatModule.build();
-          } else {
-            return widget.loginModule.build(onLoggedIn: _handleLoggedIn);
-          }
+          final child = state.isLoggedIn == true
+              ? widget.chatModule.build()
+              : widget.loginModule.build(onLoggedIn: _handleLoggedIn);
+
+          return ConcordLogoutProvider(
+            child: child,
+            onLogoutButtonTapped: _handleLogoutButtonTap,
+          );
         },
       ),
     );
@@ -55,5 +59,9 @@ class _RootProviderState extends State<RootProvider> {
 
   void _handleLoggedIn(User user) {
     _bloc.add(RootEventLoggedIn(user));
+  }
+
+  void _handleLogoutButtonTap(BuildContext context) {
+    _bloc.add(RootEventLogout());
   }
 }

@@ -22,7 +22,7 @@ class ConcordPrimaryActionButton extends StatelessWidget {
 
     final content = ConcordText(
       text: title,
-      color: theme.colors.secondaryText,
+      color: theme.colors.primaryText,
     );
 
     return ConcordButtonWireframe(

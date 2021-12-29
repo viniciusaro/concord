@@ -49,7 +49,7 @@ class _LoginProviderState extends State<LoginProvider> {
     );
   }
 
-  void _handleLoginTap() {
-    _bloc.add(LoginEventSignIn());
+  void _handleLoginTap(String otp) {
+    _bloc.add(LoginEventSignIn(otp));
   }
 }

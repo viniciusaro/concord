@@ -13,6 +13,7 @@ enum ConcordScaffoldStatusBarStyle {
 
 class ConcordScaffold extends StatelessWidget {
   final Widget? body;
+  final PreferredSizeWidget? appBar;
   final WidgetBuilder? loadingBuilder;
   final WidgetBuilder? errorBuilder;
 
@@ -28,6 +29,7 @@ class ConcordScaffold extends StatelessWidget {
   const ConcordScaffold({
     Key? key,
     this.body,
+    this.appBar,
     this.loadingBuilder,
     this.errorBuilder,
     this.loading = false,
@@ -45,6 +47,7 @@ class ConcordScaffold extends StatelessWidget {
         this.color ?? ConcordTheme.of(context).colors.primaryBackground;
 
     return Scaffold(
+      appBar: appBar,
       backgroundColor: color,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: statusBarStyle.overlay,

@@ -1,5 +1,6 @@
 library global;
 
+export 'src/concord_app_bar.dart';
 export 'src/concord_loading.dart';
 export 'src/concord_primary_action_button.dart';
 export 'src/concord_primary_icon_button.dart';

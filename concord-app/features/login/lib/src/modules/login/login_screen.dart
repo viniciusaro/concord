@@ -3,7 +3,7 @@ import 'package:login/team_library.dart';
 
 class LoginScreen extends StatelessWidget {
   final LoginState state;
-  final VoidCallback onLoginButtonTapped;
+  final Function(String) onLoginButtonTapped;
 
   const LoginScreen({
     Key? key,
@@ -15,13 +15,20 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConcordScaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           ConcordPrimaryActionButton(
             title: "Login com Vini",
-            onTap: onLoginButtonTapped,
+            onTap: () => onLoginButtonTapped("vini"),
             loading: state.submitting,
           ),
+          const ConcordSpace(),
+          ConcordPrimaryActionButton(
+            title: "Login com Cris",
+            onTap: () => onLoginButtonTapped("cris"),
+            loading: state.submitting,
+          ),
+          const SafeArea(child: SizedBox(), top: false),
         ],
       ),
     );
