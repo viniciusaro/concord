@@ -14,7 +14,8 @@ class AuthController(
 
     suspend fun signIn(credentials: SignInCredentials): SignInResponse {
         val user = userRepository.getBySignInCredentials(credentials)
-        val customToken =  firebaseAuth.createCustomToken(user.toString())
+        val claims = mapOf("user_id" to user.id)
+        val customToken = firebaseAuth.createCustomToken(user.toString(), claims)
         return SignInResponse(customToken)
     }
 }
