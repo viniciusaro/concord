@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:concord_foundation/concord_foundation.dart';
 
 import 'package:firebase_auth/firebase_auth.dart' hide User;
@@ -36,16 +34,15 @@ class AuthClientImpl implements AuthClient {
 
   @override
   Future<User> session() {
-    return _auth.currentUser
-            ?.getIdToken()
-            .map((token) => AuthenticatedUser(token.userId)) ??
-        SynchronousFuture(UnauthenticatedUser());
+    final uid = _auth.currentUser?.uid;
+    return uid != null
+        ? SynchronousFuture(AuthenticatedUser(uid))
+        : SynchronousFuture(UnauthenticatedUser());
   }
 
   @override
   Future<String?> userIdOrNull() {
-    return _auth.currentUser?.getIdToken().map((token) => token.userId) ??
-        SynchronousFuture(null);
+    return SynchronousFuture(_auth.currentUser?.uid);
   }
 }
 
@@ -56,20 +53,5 @@ extension on AuthClientImpl {
     final customToken = signInResponse.customToken;
     final userCredential = await _auth.signInWithCustomToken(customToken);
     return AuthenticatedUser(userCredential.user!.uid);
-  }
-}
-
-extension on String {
-  String get userId {
-    final payload = _parsePayloadFromAccessToken();
-    return payload['user_id'] as String;
-  }
-
-  Map<String, dynamic> _parsePayloadFromAccessToken() {
-    final parts = split('.');
-    final payload = parts[1];
-    final normalized = base64Url.normalize(payload);
-    return jsonDecode(utf8.decode(base64Url.decode(normalized)))
-        as Map<String, dynamic>;
   }
 }
