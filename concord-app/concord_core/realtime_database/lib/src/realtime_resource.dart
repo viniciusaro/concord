@@ -6,6 +6,7 @@ abstract class RealtimeResource {
 
 abstract class IdentifiableRealtimeResource<Id> {
   Stream<List<T>> documents<T>(Id identifier, Deserializer<T> deserializer);
+  Future<void> write<T>(Id identifier, T document, Serializer<T> serializer);
 }
 
 abstract class ChatRealtimeResource

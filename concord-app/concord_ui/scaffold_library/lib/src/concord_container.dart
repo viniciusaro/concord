@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
+import 'dart:math';
 
-import 'concord_padding.dart';
+import 'package:scaffold_library/scaffold_library.dart';
+import 'package:token_library/token_library.dart';
 
 export 'concord_padding.dart';
 
 class ConcordContainer extends StatelessWidget {
   final Widget? child;
 
-  final double grid;
   final ConcordPadding padding;
   final ConcordEdges edges;
 
@@ -18,8 +18,7 @@ class ConcordContainer extends StatelessWidget {
   const ConcordContainer({
     Key? key,
     this.child,
-    this.grid = 8,
-    this.padding = ConcordPadding.p0,
+    this.padding = ConcordPadding.p1,
     this.edges = ConcordEdges.all,
     this.color,
     this.shrinkWrap = false,
@@ -28,43 +27,48 @@ class ConcordContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = ConcordTheme.of(context);
+
     return Container(
       color: color,
-      child: _bodyWidget(),
+      child: _bodyWidget(theme),
     );
   }
 
-  Widget? _bodyWidget() {
+  Widget? _bodyWidget(ConcordTokens theme) {
     final child = this.child;
 
     if (child != null) {
       return _wrapperWidget(
         _shrinkWrapWidget(child),
+        theme,
       );
     }
     return null;
   }
 
-  Widget _wrapperWidget(Widget child) {
+  Widget _wrapperWidget(Widget child, ConcordTokens theme) {
     return onTap == null
-        ? _paddingWidget(child)
+        ? _paddingWidget(child, theme)
         : RawMaterialButton(
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
             fillColor: color,
             elevation: 0,
             highlightElevation: 0,
             onPressed: onTap,
-            child: _paddingWidget(child),
+            child: _paddingWidget(child, theme),
             constraints: const BoxConstraints(minHeight: 0, minWidth: 0),
           );
   }
 
-  Widget _paddingWidget(Widget child) {
+  Widget _paddingWidget(Widget child, ConcordTokens theme) {
+    final grid = theme.grid;
+
     final edgeInsets = EdgeInsets.only(
-      left: grid * padding.left - edges.leftDiscount,
-      top: grid * padding.top - edges.topDiscount,
-      right: grid * padding.right - edges.rightDiscount,
-      bottom: grid * padding.bottom - edges.leftDiscount,
+      left: max(grid * padding.left - edges.leftDiscount, 0),
+      top: max(grid * padding.top - edges.topDiscount, 0),
+      right: max(grid * padding.right - edges.rightDiscount, 0),
+      bottom: max(grid * padding.bottom - edges.leftDiscount, 0),
     );
 
     return Padding(

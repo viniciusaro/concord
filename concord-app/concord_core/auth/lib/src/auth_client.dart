@@ -2,7 +2,7 @@ import 'package:concord_foundation/concord_foundation.dart';
 import 'package:shared_models/shared_models.dart';
 
 abstract class AuthClient {
-  Future<AuthenticatedUser> signIn(String customToken);
+  Future<User> signIn(String customToken);
   Future<User> session();
 }
 

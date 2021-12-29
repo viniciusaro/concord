@@ -12,4 +12,7 @@ class {{ pascalCase name }} with _${{ pascalCase name }} {
 
   static {{ pascalCase name }} fromMap(Map<String, dynamic> json) =>
       _${{ pascalCase name }}FromJson(json);
+
+  static Map<String, dynamic> toMap({{ pascalCase name }} instance) =>
+      instance.toJson();
 }

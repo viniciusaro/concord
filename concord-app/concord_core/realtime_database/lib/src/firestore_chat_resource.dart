@@ -15,16 +15,41 @@ class FirestoreChatResource implements ChatRealtimeResource {
   Stream<List<T>> documents<T>(
     String id,
     Deserializer<T> deserializer,
-  ) {
-    final chats = _firestore.collection(chatCollection);
-    final doc = chats.doc(id);
-    final messages = doc.collection(messagesCollection);
+  ) async* {
+    final chats = _firestore.collection(Collections.chat);
+    final chatDocRef = chats.doc(id);
+    final chatSnapshot = await chatDocRef.get();
+    final messages = chatDocRef.collection(Collections.messages);
 
-    return messages.snapshots().debug(prefix: "#### ").map((query) => query.docs
-        .map((document) {
-          return document.data();
-        })
-        .map(deserializer)
-        .toList());
+    yield* messages
+        .orderBy(Fields.createdAt, descending: true)
+        .snapshots()
+        .map((query) => query.docs
+            .map((message) => {
+                  ...chatSnapshot.data() ?? {},
+                  ...message.data(),
+                })
+            .map(deserializer)
+            .toList());
+  }
+
+  @override
+  Future<void> write<T>(String id, T document, Serializer<T> serializer) async {
+    final data = serializer.call(document);
+
+    final chats = _firestore.collection(Collections.chat);
+    final chatDocRef = chats.doc(id);
+    final chatSnapshot = await chatDocRef.get();
+    final messages = chatDocRef.collection(Collections.messages);
+
+    final userId = chatSnapshot.data()?["user_id"];
+
+    await messages.add(
+      {
+        ...data,
+        "sender_id": userId,
+        "created_at": FieldValue.serverTimestamp(),
+      },
+    );
   }
 }

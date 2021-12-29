@@ -11,22 +11,22 @@ enum ConcordEdges {
 }
 
 extension ConcordPaddingX on ConcordPadding {
-  double get left => _value;
+  double get left => value;
 
-  double get top => _value;
+  double get top => value;
 
-  double get right => _value;
+  double get right => value;
 
-  double get bottom => _value;
+  double get bottom => value;
 
-  double get _value {
+  double get value {
     switch (this) {
       case ConcordPadding.p0:
-        return 1;
+        return 0;
       case ConcordPadding.p1:
-        return 2;
+        return 1;
       case ConcordPadding.p2:
-        return 3;
+        return 2;
     }
   }
 }

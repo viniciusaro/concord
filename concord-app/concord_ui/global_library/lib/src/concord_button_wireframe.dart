@@ -7,6 +7,8 @@ class ConcordButtonWireframe extends StatelessWidget {
   final bool loading;
   final VoidCallback onTap;
   final double height;
+  final double? width;
+  final bool enabled;
 
   const ConcordButtonWireframe({
     Key? key,
@@ -15,6 +17,8 @@ class ConcordButtonWireframe extends StatelessWidget {
     required this.loading,
     required this.onTap,
     required this.height,
+    this.width,
+    this.enabled = true,
   }) : super(key: key);
 
   @override
@@ -25,12 +29,13 @@ class ConcordButtonWireframe extends StatelessWidget {
 
     return SizedBox(
       height: height,
+      width: width,
       child: ConcordContainer(
         child: Center(child: body),
         color: color,
         padding: ConcordPadding.p0,
-        edges: ConcordEdges.topBottom,
-        onTap: onTap,
+        edges: ConcordEdges.all,
+        onTap: enabled ? onTap : null,
       ),
     );
   }

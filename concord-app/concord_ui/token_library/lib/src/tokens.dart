@@ -6,5 +6,8 @@ part 'tokens.freezed.dart';
 
 @freezed
 class ConcordTokens with _$ConcordTokens {
-  factory ConcordTokens(ConcordColors colors) = _ConcordTokens;
+  factory ConcordTokens(
+    ConcordColors colors,
+    int grid,
+  ) = _ConcordTokens;
 }

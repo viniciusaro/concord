@@ -8,6 +8,6 @@ class LoginState with _$LoginState {
     @Default(false) bool loading,
     @Default(false) bool submitting,
     @Default(null) Object? error,
-    @Default(null) AuthenticatedUser? user,
+    @Default(null) User? user,
   }) = _LoginState;
 }

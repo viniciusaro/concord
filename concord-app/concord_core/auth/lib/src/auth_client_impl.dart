@@ -15,7 +15,7 @@ class AuthClientImpl implements AuthClient {
   AuthClientImpl(this._api, this._auth);
 
   @override
-  Future<AuthenticatedUser> signIn(String token) {
+  Future<User> signIn(String token) {
     return signInWithFirebase(token).mapError((e) {
       return e is FirebaseAuthException
           ? AuthProviderError(e)
@@ -33,7 +33,7 @@ class AuthClientImpl implements AuthClient {
 }
 
 extension on AuthClientImpl {
-  Future<AuthenticatedUser> signInWithFirebase(String token) async {
+  Future<User> signInWithFirebase(String token) async {
     final target = AuthTarget.signIn(token);
     final signInResponse = await _api.request(target, SignInResponse.fromMap);
     final customToken = signInResponse.customToken;

@@ -1,6 +1,8 @@
+import 'package:chat/src/modules/chat_input/chat_input_module.dart';
 import 'package:concord_arch/concord_arch.dart';
+
+import 'package:chat/team_library.dart';
 import 'package:chat/data.dart';
-import 'package:flutter/widgets.dart';
 
 import 'chat_bloc.dart';
 import 'chat_event.dart';
@@ -9,10 +11,12 @@ import 'chat_state.dart';
 
 class ChatProvider extends StatefulWidget {
   final ChatRepository chatRepository;
+  final ChatInputModule chatInputModule;
 
   const ChatProvider({
     Key? key,
     required this.chatRepository,
+    required this.chatInputModule,
   }) : super(key: key);
 
   @override
@@ -38,7 +42,11 @@ class _ChatProviderState extends State<ChatProvider> {
           //
         },
         child: BlocBuilder<ChatBloc, ChatState>(builder: (context, state) {
-          return ChatScreen(state: state);
+          return ChatScreen(
+            state: state,
+            renderer: ChatMessageRenderer.fromMessage(),
+            inputWidget: widget.chatInputModule.build(),
+          );
         }),
       ),
     );

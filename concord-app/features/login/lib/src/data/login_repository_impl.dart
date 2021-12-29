@@ -10,7 +10,7 @@ class LoginRepositoryImpl implements LoginRepository {
   LoginRepositoryImpl(this._authClient);
 
   @override
-  Future<AuthenticatedUser> signIn(String otp) {
+  Future<User> signIn(String otp) {
     return _authClient.signIn(otp).mapError((e) => LoginRepositoryError(e));
   }
 }

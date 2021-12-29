@@ -33,7 +33,7 @@ class ConcordScaffold extends StatelessWidget {
     this.loading = false,
     this.error,
     this.grid = 8,
-    this.padding = ConcordPadding.p0,
+    this.padding = ConcordPadding.p1,
     this.edges = ConcordEdges.leftRight,
     this.color,
     this.statusBarStyle = ConcordScaffoldStatusBarStyle.light,
@@ -41,13 +41,16 @@ class ConcordScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final color =
+        this.color ?? ConcordTheme.of(context).colors.primaryBackground;
+
     return Scaffold(
+      backgroundColor: color,
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: statusBarStyle.overlay,
         child: ConcordContainer(
           padding: padding,
           edges: edges,
-          color: color ?? ConcordTheme.of(context).colors.primary,
           child: _bodyWidget(context),
         ),
       ),

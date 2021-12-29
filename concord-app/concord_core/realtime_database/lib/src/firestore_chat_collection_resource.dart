@@ -19,7 +19,7 @@ class FirestoreChatCollectionResource
 
   @override
   Stream<List<T>> documents<T>(Deserializer<T> deserializer) {
-    return _firestore.collection(chatCollection).snapshots().map((query) =>
+    return _firestore.collection(Collections.chat).snapshots().map((query) =>
         query.docs.map((document) => deserializer(document.data())).toList());
   }
 }

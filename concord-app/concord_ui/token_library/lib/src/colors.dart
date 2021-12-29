@@ -9,6 +9,7 @@ class ConcordColors with _$ConcordColors {
     required Color primary,
     required Color primaryText,
     required Color primaryAction,
+    required Color primaryBackground,
     required Color secondary,
     required Color secondaryText,
     required Color secondaryAction,
