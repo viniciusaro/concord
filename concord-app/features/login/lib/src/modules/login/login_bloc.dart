@@ -1,4 +1,5 @@
 import 'package:concord_arch/concord_arch.dart';
+import 'package:concord_core/concord_core.dart';
 import 'package:login/data.dart';
 
 import 'login_event.dart';
@@ -14,10 +15,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event is LoginEventSignIn) {
       yield state.copyWith(submitting: true);
       try {
-        final user = await _loginRepository.signIn(event.otp);
-        yield state.copyWith(user: user, submitting: false);
+        await _loginRepository.sendOtp(event.alias);
+        yield state.copyWith(success: TransientValue(true));
       } catch (e) {
-        yield state.copyWith(error: e, submitting: false);
+        yield state.copyWith(error: e);
+      } finally {
+        yield state.copyWith(submitting: false);
       }
     }
   }

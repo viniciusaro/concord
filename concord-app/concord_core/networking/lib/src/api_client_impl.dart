@@ -16,15 +16,21 @@ class ApiClientImpl with ApiClient {
 
   @override
   Future<T> request<T>(Target target, Deserializer<T> deserializer) {
-    return requestData(target)
+    return requestDataResponse(target)
         .mapError(ApiErrorX.fromError)
         .map((response) => response.toMap())
         .map(deserializer);
   }
+
+  @override
+  Future<Uint8List> requestData(Target target) {
+    return requestDataResponse(target)
+        .map((response) => response.data ?? Uint8List(0));
+  }
 }
 
 extension on ApiClientImpl {
-  Future<Response<Uint8List>> requestData(Target target) {
+  Future<Response<Uint8List>> requestDataResponse(Target target) {
     final fullPath = target.baseUrl + target.path;
 
     final options = Options(

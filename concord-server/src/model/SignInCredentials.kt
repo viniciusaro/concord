@@ -1,3 +1,3 @@
 package com.concord.model
 
-data class SignInCredentials(val token: String)
+data class SignInCredentials(val otp: String)

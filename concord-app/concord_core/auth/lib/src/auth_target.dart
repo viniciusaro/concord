@@ -21,10 +21,18 @@ class AuthTarget with Target {
   @override
   final String path;
 
-  static AuthTarget signIn(String token) {
+  static AuthTarget sendOtp(String alias) {
     return AuthTarget(
       HttpMethod.post,
-      {"token": token},
+      {"alias": alias},
+      "/send_otp",
+    );
+  }
+
+  static AuthTarget signIn(String otp) {
+    return AuthTarget(
+      HttpMethod.post,
+      {"otp": otp},
       "/sign_in",
     );
   }

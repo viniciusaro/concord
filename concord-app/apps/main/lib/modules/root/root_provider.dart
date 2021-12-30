@@ -44,16 +44,36 @@ class _RootProviderState extends State<RootProvider> {
       create: (_) => _bloc,
       child: BlocBuilder<RootBloc, RootState>(
         builder: (context, state) {
-          final child = state.isLoggedIn == true
-              ? widget.chatListModule.build()
-              : widget.loginModule.build(onLoggedIn: _handleLoggedIn);
-
           return ConcordLogoutProvider(
-            child: child,
+            child: state.isLoggedIn == true ? _chatModule() : _loginModule(),
             onLogoutButtonTapped: _handleLogoutButtonTap,
           );
         },
       ),
+    );
+  }
+
+  Widget _chatModule() {
+    return Navigator(
+      key: UniqueKey(),
+      onGenerateRoute: (_) {
+        return MaterialPageRoute(
+          builder: (_) => widget.chatListModule.build(),
+        );
+      },
+    );
+  }
+
+  Widget _loginModule() {
+    return Navigator(
+      key: UniqueKey(),
+      onGenerateRoute: (_) {
+        return MaterialPageRoute(
+          builder: (_) => widget.loginModule.build(
+            onLoggedIn: _handleLoggedIn,
+          ),
+        );
+      },
     );
   }
 

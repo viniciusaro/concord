@@ -3,11 +3,13 @@ import 'package:scaffold_library/scaffold_library.dart';
 class ConcordTextField extends StatelessWidget {
   final TextEditingController? controller;
   final bool enabled;
+  final bool autofocus;
 
   const ConcordTextField({
     Key? key,
     this.controller,
     this.enabled = true,
+    this.autofocus = false,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class ConcordTextField extends StatelessWidget {
     );
 
     return TextField(
+      autofocus: autofocus,
       enabled: enabled,
       style: TextStyle(
         color: theme.colors.primaryText,

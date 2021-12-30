@@ -1,8 +1,9 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_core/concord_core.dart';
 import 'package:login/data.dart';
-import 'package:flutter/widgets.dart';
 import 'package:login/src/modules/login/login_event.dart';
+import 'package:login/src/modules/login_otp/login_otp_module.dart';
+import 'package:login/team_library.dart';
 
 import 'login_bloc.dart';
 import 'login_screen.dart';
@@ -12,10 +13,13 @@ class LoginProvider extends StatefulWidget {
   final Function(User) onLoggedIn;
   final LoginRepository loginRepository;
 
+  final LoginOtpModule loginOtpModule;
+
   const LoginProvider({
     Key? key,
     required this.onLoggedIn,
     required this.loginRepository,
+    required this.loginOtpModule,
   }) : super(key: key);
 
   @override
@@ -24,6 +28,7 @@ class LoginProvider extends StatefulWidget {
 
 class _LoginProviderState extends State<LoginProvider> {
   late LoginBloc _bloc;
+  final _textFieldController = TextEditingController();
 
   @override
   void initState() {
@@ -37,11 +42,12 @@ class _LoginProviderState extends State<LoginProvider> {
       create: (_) => _bloc,
       child: BlocListener<LoginBloc, LoginState>(
         listener: (context, state) {
-          state.user?.let(widget.onLoggedIn);
+          state.success?.let((_) => _handleOtpSuccess());
         },
         child: BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
           return LoginScreen(
             state: state,
+            textFieldController: _textFieldController,
             onLoginButtonTapped: _handleLoginTap,
           );
         }),
@@ -49,7 +55,17 @@ class _LoginProviderState extends State<LoginProvider> {
     );
   }
 
-  void _handleLoginTap(String otp) {
-    _bloc.add(LoginEventSignIn(otp));
+  void _handleLoginTap() {
+    _bloc.add(LoginEventSignIn(_textFieldController.text));
+  }
+
+  void _handleOtpSuccess() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => widget.loginOtpModule.build(
+          onLoggedIn: widget.onLoggedIn,
+        ),
+      ),
+    );
   }
 }

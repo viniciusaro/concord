@@ -15,8 +15,13 @@ class AuthClientImpl implements AuthClient {
   AuthClientImpl(this._api, this._auth);
 
   @override
-  Future<User> signIn(String token) {
-    return signInWithFirebase(token).mapError((e) {
+  Future<void> sendOtp(String alias) {
+    return _api.requestData(AuthTarget.sendOtp(alias));
+  }
+
+  @override
+  Future<User> signIn(String otp) {
+    return signInWithFirebase(otp).mapError((e) {
       return e is FirebaseAuthException
           ? AuthProviderError(e)
           : AuthUnknownError(e);
@@ -47,8 +52,8 @@ class AuthClientImpl implements AuthClient {
 }
 
 extension on AuthClientImpl {
-  Future<User> signInWithFirebase(String token) async {
-    final target = AuthTarget.signIn(token);
+  Future<User> signInWithFirebase(String otp) async {
+    final target = AuthTarget.signIn(otp);
     final signInResponse = await _api.request(target, SignInResponse.fromMap);
     final customToken = signInResponse.customToken;
     final userCredential = await _auth.signInWithCustomToken(customToken);

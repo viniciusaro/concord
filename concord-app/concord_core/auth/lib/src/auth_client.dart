@@ -2,7 +2,8 @@ import 'package:concord_foundation/concord_foundation.dart';
 import 'package:shared_models/shared_models.dart';
 
 abstract class AuthClient {
-  Future<User> signIn(String customToken);
+  Future<void> sendOtp(String alias);
+  Future<User> signIn(String otp);
   Future<User> signOut();
   Future<User> session();
   Future<String?> userIdOrNull();
