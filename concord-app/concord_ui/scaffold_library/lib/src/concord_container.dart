@@ -9,7 +9,6 @@ class ConcordContainer extends StatelessWidget {
   final Widget? child;
 
   final ConcordPadding padding;
-  final ConcordEdges edges;
 
   final Color? color;
   final bool shrinkWrap;
@@ -19,7 +18,6 @@ class ConcordContainer extends StatelessWidget {
     Key? key,
     this.child,
     this.padding = ConcordPadding.p1,
-    this.edges = ConcordEdges.all,
     this.color,
     this.shrinkWrap = false,
     this.onTap,
@@ -65,10 +63,10 @@ class ConcordContainer extends StatelessWidget {
     final grid = theme.grid;
 
     final edgeInsets = EdgeInsets.only(
-      left: max(grid * padding.left - edges.leftDiscount, 0),
-      top: max(grid * padding.top - edges.topDiscount, 0),
-      right: max(grid * padding.right - edges.rightDiscount, 0),
-      bottom: max(grid * padding.bottom - edges.leftDiscount, 0),
+      left: max(grid * padding.left, 0),
+      top: max(grid * padding.top, 0),
+      right: max(grid * padding.right, 0),
+      bottom: max(grid * padding.bottom, 0),
     );
 
     return Padding(

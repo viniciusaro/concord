@@ -13,7 +13,10 @@ class ConcordColors with _$ConcordColors {
     required Color secondary,
     required Color secondaryText,
     required Color secondaryAction,
+    required Color secondaryBackground,
     required Color tertiary,
+    required Color tertiaryText,
     required Color tertiaryAction,
+    required Color tertiaryBackground,
   }) = _ConcordColors;
 }

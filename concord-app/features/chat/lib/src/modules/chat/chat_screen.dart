@@ -30,7 +30,6 @@ class ChatScreen extends StatelessWidget {
     final body = Column(
       children: [
         Expanded(child: list),
-        const ConcordSpace(),
         inputWidget,
       ],
     );

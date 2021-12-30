@@ -15,8 +15,11 @@ final colors = ConcordColors(
   primaryAction: const Color(0xff6699cc),
   primaryBackground: const Color(0xff3a3a3a),
   secondary: const Color(0xff282828),
-  secondaryText: const Color(0xffee6a6e),
+  secondaryText: const Color(0xffffffff),
   secondaryAction: const Color(0xfff6b362),
+  secondaryBackground: const Color(0xff8fb28b),
   tertiary: const Color(0xff8fb28b),
-  tertiaryAction: const Color(0xffffffff),
+  tertiaryText: const Color(0xffee6a6e),
+  tertiaryAction: const Color(0xff3a3a3a),
+  tertiaryBackground: const Color(0xfff6b362),
 );

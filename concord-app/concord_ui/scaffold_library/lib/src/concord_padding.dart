@@ -1,78 +1,54 @@
-enum ConcordPadding {
-  p0,
-  p1,
-  p2,
-}
+class ConcordPadding {
+  final double left;
+  final double top;
+  final double right;
+  final double bottom;
 
-enum ConcordEdges {
-  all,
-  leftRight,
-  topBottom,
-}
+  const ConcordPadding._(this.left, this.top, this.right, this.bottom);
 
-extension ConcordPaddingX on ConcordPadding {
-  double get left => value;
+  static const ConcordPadding p0 = ConcordPadding._(0, 0, 0, 0);
+  static const ConcordPadding p1 = ConcordPadding._(1, 1, 1, 1);
+  static const ConcordPadding p1TopBottom = ConcordPadding._(0, 1, 0, 1);
+  static const ConcordPadding p1LeftRight = ConcordPadding._(1, 0, 1, 0);
+  static const ConcordPadding p2 = ConcordPadding._(2, 2, 2, 2);
+  static const ConcordPadding p2TopBottom = ConcordPadding._(0, 2, 0, 2);
+  static const ConcordPadding p2LeftRight = ConcordPadding._(2, 0, 2, 0);
 
-  double get top => value;
-
-  double get right => value;
-
-  double get bottom => value;
-
-  double get value {
-    switch (this) {
-      case ConcordPadding.p0:
-        return 0;
-      case ConcordPadding.p1:
-        return 1;
-      case ConcordPadding.p2:
-        return 2;
-    }
-  }
-}
-
-extension ConcordEdgesX on ConcordEdges {
-  double get leftDiscount {
-    switch (this) {
-      case ConcordEdges.all:
-        return 1;
-      case ConcordEdges.topBottom:
-        return 0;
-      case ConcordEdges.leftRight:
-        return 1;
-    }
+  static ConcordPadding only({
+    ConcordPadding left = ConcordPadding.p0,
+    ConcordPadding top = ConcordPadding.p0,
+    ConcordPadding right = ConcordPadding.p0,
+    ConcordPadding bottom = ConcordPadding.p0,
+  }) {
+    return ConcordPadding._(
+      left.left,
+      top.top,
+      right.right,
+      bottom.bottom,
+    );
   }
 
-  double get topDiscount {
-    switch (this) {
-      case ConcordEdges.all:
-        return 1;
-      case ConcordEdges.topBottom:
-        return 1;
-      case ConcordEdges.leftRight:
-        return 0;
-    }
+  static ConcordPadding leftRight(
+    ConcordPadding leftRight, {
+    ConcordPadding topBottom = ConcordPadding.p0,
+  }) {
+    return ConcordPadding._(
+      leftRight.left,
+      topBottom.top,
+      leftRight.right,
+      topBottom.bottom,
+    );
   }
 
-  double get rightDiscount {
-    switch (this) {
-      case ConcordEdges.all:
-        return 1;
-      case ConcordEdges.topBottom:
-        return 0;
-      case ConcordEdges.leftRight:
-        return 1;
-    }
-  }
-
-  double get bottomDiscount {
-    switch (this) {
-      case ConcordEdges.all:
-        return 1;
-      case ConcordEdges.topBottom:
-        return 1;
-      case ConcordEdges.leftRight:
-        return 0;
-    }
+  static ConcordPadding topBottom(
+    ConcordPadding topBottom, {
+    ConcordPadding leftRight = ConcordPadding.p0,
+  }) {
+    return ConcordPadding._(
+      leftRight.left,
+      topBottom.top,
+      leftRight.right,
+      topBottom.bottom,
+    );
   }
 }

@@ -22,7 +22,6 @@ class ConcordScaffold extends StatelessWidget {
 
   final double grid;
   final ConcordPadding padding;
-  final ConcordEdges edges;
   final Color? color;
   final ConcordScaffoldStatusBarStyle statusBarStyle;
 
@@ -35,8 +34,7 @@ class ConcordScaffold extends StatelessWidget {
     this.loading = false,
     this.error,
     this.grid = 8,
-    this.padding = ConcordPadding.p1,
-    this.edges = ConcordEdges.leftRight,
+    this.padding = ConcordPadding.p0,
     this.color,
     this.statusBarStyle = ConcordScaffoldStatusBarStyle.light,
   }) : super(key: key);
@@ -53,7 +51,6 @@ class ConcordScaffold extends StatelessWidget {
         value: statusBarStyle.overlay,
         child: ConcordContainer(
           padding: padding,
-          edges: edges,
           child: _bodyWidget(context),
         ),
       ),

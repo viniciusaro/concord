@@ -1,16 +1,24 @@
 import 'package:scaffold_library/scaffold_library.dart';
+import 'package:token_library/token_library.dart';
 
 import 'concord_button_wireframe.dart';
 import 'concord_text.dart';
 
-class ConcordPrimaryActionButton extends StatelessWidget {
+enum ConcordActionButtomStyle {
+  primary,
+  secondary,
+}
+
+class ConcordActionButton extends StatelessWidget {
   final String title;
+  final ConcordActionButtomStyle style;
   final bool loading;
   final VoidCallback onTap;
 
-  const ConcordPrimaryActionButton({
+  const ConcordActionButton({
     Key? key,
     required this.title,
+    this.style = ConcordActionButtomStyle.primary,
     this.loading = false,
     required this.onTap,
   }) : super(key: key);
@@ -28,9 +36,20 @@ class ConcordPrimaryActionButton extends StatelessWidget {
     return ConcordButtonWireframe(
       content: content,
       height: height,
-      color: theme.colors.primaryAction,
+      color: style.color(theme),
       loading: loading,
       onTap: onTap,
     );
+  }
+}
+
+extension on ConcordActionButtomStyle {
+  Color color(ConcordTokens theme) {
+    switch (this) {
+      case ConcordActionButtomStyle.primary:
+        return theme.colors.primaryAction;
+      case ConcordActionButtomStyle.secondary:
+        return theme.colors.secondaryAction;
+    }
   }
 }

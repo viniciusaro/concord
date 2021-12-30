@@ -12,9 +12,12 @@ class ConcordSpace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final horizontalPadding = (padding.top + padding.bottom) / 2;
+    final verticalPadding = (padding.left + padding.right) / 2;
+
     final theme = ConcordTheme.of(context);
-    final width = axis == Axis.vertical ? padding.value * theme.grid : 0.0;
-    final heigth = axis == Axis.horizontal ? padding.value * theme.grid : 0.0;
+    final width = axis == Axis.vertical ? horizontalPadding * theme.grid : 0.0;
+    final heigth = axis == Axis.horizontal ? verticalPadding * theme.grid : 0.0;
     return SizedBox(width: width, height: heigth);
   }
 }

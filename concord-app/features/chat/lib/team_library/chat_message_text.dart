@@ -17,12 +17,16 @@ class ChatMessageText extends StatelessWidget {
         ? ConcordTheme.of(context).colors.secondary
         : ConcordTheme.of(context).colors.tertiary;
 
+    final content = ConcordContainer(
+      padding: ConcordPadding.p2,
+      color: color,
+      child: text,
+    );
+
     return Align(
       alignment: alignment,
       child: ConcordContainer(
-        child: text,
-        padding: ConcordPadding.p2,
-        color: color,
+        child: content,
       ),
     );
   }

@@ -13,7 +13,11 @@ class ChatListItem extends StatelessWidget {
       child: Row(
         children: [
           const Expanded(child: ConcordText(text: "Conversa")),
-          ConcordPrimaryIconButton(icon: Icons.arrow_forward, onTap: onTap),
+          ConcordIconButton(
+            icon: Icons.arrow_forward,
+            style: ConcordIconButtonStyle.tertiary,
+            onTap: onTap,
+          ),
         ],
       ),
     );

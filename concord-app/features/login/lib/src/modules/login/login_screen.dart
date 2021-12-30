@@ -14,16 +14,17 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConcordScaffold(
+      loading: state.submitting,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          ConcordPrimaryActionButton(
+          ConcordActionButton(
             title: "Login com Vini",
             onTap: () => onLoginButtonTapped("vini"),
             loading: state.submitting,
           ),
           const ConcordSpace(),
-          ConcordPrimaryActionButton(
+          ConcordActionButton(
             title: "Login com Cris",
             onTap: () => onLoginButtonTapped("cris"),
             loading: state.submitting,

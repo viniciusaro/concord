@@ -1,6 +1,6 @@
 import 'package:scaffold_library/scaffold_library.dart';
 
-import 'concord_primary_icon_button.dart';
+import 'concord_icon_button.dart';
 import 'concord_text.dart';
 
 class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -25,7 +25,7 @@ class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
 
     final title = ConcordText(text: this.title);
 
-    final backButton = ConcordPrimaryIconButton(
+    final backButton = ConcordIconButton(
       onTap: () => navigator.pop(),
       icon: Icons.arrow_back_sharp,
     );
@@ -35,12 +35,16 @@ class ConcordAppBar extends StatelessWidget with PreferredSizeWidget {
         : const SizedBox();
 
     final actions =
-        this.actions?.map((action) => Center(child: action)).toList();
+        (this.actions ?? []) + [const ConcordSpace(axis: Axis.vertical)];
+
+    final centeredActions =
+        actions.map((action) => Center(child: action)).toList();
 
     return AppBar(
       title: title,
+      centerTitle: true,
       leading: leading,
-      actions: actions,
+      actions: centeredActions,
       backgroundColor: theme.colors.secondary,
     );
   }

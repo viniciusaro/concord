@@ -19,7 +19,7 @@ class ChatInputScreen extends StatelessWidget {
     final theme = ConcordTheme.of(context);
     final textField = ConcordTextField(controller: textFieldController);
 
-    final sendButton = ConcordPrimaryIconButton(
+    final sendButton = ConcordIconButton(
       icon: Icons.send,
       onTap: onSendTapped,
     );

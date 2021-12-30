@@ -22,7 +22,7 @@ class ChatListScreen extends StatelessWidget {
       ),
     );
 
-    final logoutButton = ConcordPrimaryIconButton(
+    final logoutButton = ConcordIconButton(
       icon: Icons.settings,
       onTap: () =>
           ConcordLogoutProvider.of(context)?.onLogoutButtonTapped(context),

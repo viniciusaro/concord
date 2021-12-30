@@ -39,7 +39,6 @@ class ConcordButtonWireframe extends StatelessWidget {
         child: Center(child: body),
         color: color,
         padding: ConcordPadding.p0,
-        edges: ConcordEdges.all,
         onTap: enabled ? onTap : null,
       ),
     );
