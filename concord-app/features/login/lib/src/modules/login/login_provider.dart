@@ -1,11 +1,12 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_core/concord_core.dart';
+
 import 'package:login/data.dart';
-import 'package:login/src/modules/login/login_event.dart';
-import 'package:login/src/modules/login_otp/login_otp_module.dart';
 import 'package:login/team_library.dart';
 
+import '../login_otp/login_otp_module.dart';
 import 'login_bloc.dart';
+import 'login_event.dart';
 import 'login_screen.dart';
 import 'login_state.dart';
 

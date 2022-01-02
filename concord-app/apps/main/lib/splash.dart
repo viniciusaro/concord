@@ -28,9 +28,8 @@ class _SplashState extends State<Splash> {
   }
 
   Widget splashBuilder() {
-    return ConcordScaffold(
-      loading: true,
-      body: Container(),
+    return const ConcordScaffold(
+      appBar: ConcordAppBar(title: ""),
     );
   }
 

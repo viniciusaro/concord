@@ -8,11 +8,9 @@ class MemoryKeyValueStorageImpl with KeyValueStorage {
   MemoryKeyValueStorageImpl(this._storage);
 
   @override
-  Future<Map<String, dynamic>> get(String key) {
+  Future<Map<String, dynamic>?> get(String key) {
     final value = _storage[key];
-    return value != null
-        ? SynchronousFuture(value)
-        : Future.error(KeyNotFoundError());
+    return value != null ? SynchronousFuture(value) : SynchronousFuture(null);
   }
 
   @override

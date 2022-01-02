@@ -11,8 +11,8 @@ class StorageClientImpl with StorageClient {
   StorageClientImpl(this._keyValueStorage);
 
   @override
-  Future<T> get<T>(Deserializer<T> deserializer) {
-    return _keyValueStorage.get(T.key).map(deserializer);
+  Future<T?> get<T>(Deserializer<T> deserializer) {
+    return _keyValueStorage.get(T.key).map((item) => item?.let(deserializer));
   }
 
   @override

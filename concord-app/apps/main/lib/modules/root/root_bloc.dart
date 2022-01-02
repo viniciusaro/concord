@@ -1,19 +1,20 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_core/concord_core.dart';
+import 'package:login/data.dart';
 
 import 'root_event.dart';
 import 'root_state.dart';
 
 class RootBloc extends Bloc<RootEvent, RootState> {
-  final AuthClient _authClient;
+  final LoginRepository _loginRepository;
 
-  RootBloc(User user, this._authClient) : super(RootState(user: user));
+  RootBloc(User user, this._loginRepository) : super(RootState(user: user));
 
   @override
   Stream<RootState> mapEventToState(RootEvent event) async* {
     if (event is RootEventStart) {
       try {
-        final user = await _authClient.session();
+        final user = await _loginRepository.session();
         yield state.copyWith(user: user);
       } catch (e) {
         yield state.copyWith(error: e);
@@ -24,7 +25,7 @@ class RootBloc extends Bloc<RootEvent, RootState> {
     }
     if (event is RootEventLogout) {
       try {
-        final user = await _authClient.signOut();
+        final user = await _loginRepository.signOut();
         yield state.copyWith(user: user);
       } catch (e) {
         yield state.copyWith(error: e);

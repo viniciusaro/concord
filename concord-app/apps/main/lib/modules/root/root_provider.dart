@@ -3,6 +3,7 @@ import 'package:concord_core/concord_core.dart';
 import 'package:concord_ui/concord_ui.dart';
 
 import 'package:chat/chat.dart';
+import 'package:login/data.dart';
 import 'package:login/login.dart';
 
 import 'root_bloc.dart';
@@ -11,15 +12,15 @@ import 'root_state.dart';
 
 class RootProvider extends StatefulWidget {
   final User user;
+  final LoginRepository loginRepository;
 
-  final AuthClient authClient;
   final LoginModule loginModule;
   final ChatListModule chatListModule;
 
   const RootProvider({
     Key? key,
     required this.user,
-    required this.authClient,
+    required this.loginRepository,
     required this.loginModule,
     required this.chatListModule,
   }) : super(key: key);
@@ -34,7 +35,7 @@ class _RootProviderState extends State<RootProvider> {
   @override
   void initState() {
     super.initState();
-    _bloc = RootBloc(widget.user, widget.authClient);
+    _bloc = RootBloc(widget.user, widget.loginRepository);
     _bloc.add(RootEventStart());
   }
 
