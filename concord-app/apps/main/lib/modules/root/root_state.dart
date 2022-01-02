@@ -1,4 +1,5 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_core/shared_models.dart';
+import 'package:concord_foundation/serialization.dart';
 
 part 'root_state.freezed.dart';
 

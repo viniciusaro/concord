@@ -1,4 +1,5 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_core/realtime.dart';
+import 'package:concord_foundation/types.dart';
 
 import 'chat_repository.dart';
 import 'models/chat.dart';

@@ -11,9 +11,12 @@ environment:
 dependencies:
   concord_arch:
     path: ../../concord_arch
-
+  
   concord_core:
     path: ../../concord_core
+
+  concord_foundation:
+    path: ../../concord_foundation
 
   concord_ui:
     path: ../../concord_ui

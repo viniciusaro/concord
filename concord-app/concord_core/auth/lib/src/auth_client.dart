@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/exceptions.dart';
 import 'package:shared_models/shared_models.dart';
 
 abstract class AuthClient {

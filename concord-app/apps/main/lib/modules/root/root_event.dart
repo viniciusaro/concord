@@ -1,4 +1,4 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_core/shared_models.dart';
 
 abstract class RootEvent {}
 

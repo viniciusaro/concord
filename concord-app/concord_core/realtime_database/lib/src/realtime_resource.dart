@@ -1,4 +1,4 @@
-import 'package:serialization/serialization.dart';
+import 'package:concord_foundation/serialization.dart';
 
 abstract class RealtimeResource {
   Stream<List<T>> documents<T>(Deserializer<T> deserializer);

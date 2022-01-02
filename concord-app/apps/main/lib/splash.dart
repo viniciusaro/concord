@@ -1,4 +1,4 @@
-import 'package:concord_ui/concord_ui.dart';
+import 'package:concord_ui/global.dart';
 import 'package:main/main_loader.dart';
 
 typedef InitLoader = Future<LoadResult> Function();

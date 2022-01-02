@@ -1,6 +1,8 @@
-import 'package:concord_foundation/concord_foundation.dart';
-import 'package:networking/networking.dart';
-import 'package:networking/src/api_client_impl.dart';
+import 'package:concord_foundation/di.dart';
+
+import 'package:dio/dio.dart';
+
+import '../src/api_client_impl.dart';
 
 class NetworkingRegister with Register {
   @override

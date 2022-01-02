@@ -1,12 +1,14 @@
-import 'package:concord_foundation/concord_foundation.dart';
-
+import 'package:concord_foundation/types.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide User;
+import 'package:flutter/foundation.dart';
 import 'package:networking/networking.dart';
 import 'package:shared_models/shared_models.dart';
 
 import 'auth_client.dart';
 import 'auth_target.dart';
 import 'sign_in_response.dart';
+
+export 'auth_client.dart';
 
 class AuthClientImpl implements AuthClient {
   final ApiClient _api;

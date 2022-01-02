@@ -1,9 +1,8 @@
-import 'package:chat/src/modules/chat_input/chat_input_module.dart';
+import 'package:chat/data.dart';
+import 'package:chat/team_library.dart';
 import 'package:concord_arch/concord_arch.dart';
 
-import 'package:chat/team_library.dart';
-import 'package:chat/data.dart';
-
+import '../chat_input/chat_input_module.dart';
 import 'chat_bloc.dart';
 import 'chat_event.dart';
 import 'chat_screen.dart';

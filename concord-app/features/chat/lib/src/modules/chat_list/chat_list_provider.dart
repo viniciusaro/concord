@@ -1,10 +1,9 @@
-import 'package:concord_arch/concord_arch.dart';
-import 'package:concord_foundation/concord_foundation.dart';
-
 import 'package:chat/data.dart';
 import 'package:chat/team_library.dart';
-import '../chat/chat_module.dart';
+import 'package:concord_arch/concord_arch.dart';
+import 'package:concord_foundation/types.dart';
 
+import '../chat/chat_module.dart';
 import 'chat_list_bloc.dart';
 import 'chat_list_event.dart';
 import 'chat_list_screen.dart';

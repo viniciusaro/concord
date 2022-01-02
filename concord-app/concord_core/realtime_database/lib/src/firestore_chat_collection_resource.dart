@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:serialization/serialization.dart';
+import 'package:concord_foundation/serialization.dart';
 
 import 'firestore_collections.dart';
 import 'realtime_resource.dart';

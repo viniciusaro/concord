@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/serialization.dart';
 
 import 'target.dart';
 

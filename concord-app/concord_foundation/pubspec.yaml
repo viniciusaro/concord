@@ -9,23 +9,20 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  base_exceptions:
-    path: base_exceptions
-
   di:
     path: di
+
+  exceptions:
+    path: exceptions
 
   flutter:
     sdk: flutter
 
-  helper_types:
-    path: helper_types
-
-  type_extensions:
-    path: type_extensions
-
   serialization:
     path: serialization
+  
+  types:
+    path: types
 
 dev_dependencies:
   flutter_test:

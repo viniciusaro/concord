@@ -1,4 +1,6 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/types.dart';
+
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'key_value_storage.dart';

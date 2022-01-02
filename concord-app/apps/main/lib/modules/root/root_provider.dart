@@ -1,8 +1,7 @@
-import 'package:concord_arch/concord_arch.dart';
-import 'package:concord_core/concord_core.dart';
-import 'package:concord_ui/concord_ui.dart';
-
 import 'package:chat/chat.dart';
+import 'package:concord_arch/concord_arch.dart';
+import 'package:concord_core/shared_models.dart';
+import 'package:concord_ui/global.dart';
 import 'package:login/data.dart';
 import 'package:login/login.dart';
 

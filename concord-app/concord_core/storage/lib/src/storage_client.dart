@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/serialization.dart';
 
 abstract class StorageClient {
   Future<T?> get<T>(Deserializer<T> deserializer);

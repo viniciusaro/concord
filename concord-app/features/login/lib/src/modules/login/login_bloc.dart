@@ -1,5 +1,5 @@
 import 'package:concord_arch/concord_arch.dart';
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_foundation/types.dart';
 import 'package:login/data.dart';
 
 import 'login_event.dart';

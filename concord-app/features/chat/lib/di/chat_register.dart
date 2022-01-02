@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/di.dart';
 
 import '../src/data/chat_repository_impl.dart';
 import '../src/modules/chat/chat_module.dart';

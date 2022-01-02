@@ -24,6 +24,9 @@ dependencies:
   chat:
     path: ../../features/chat
 
+  concord_arch:
+    path: ../../concord_arch
+
   concord_core:
     path: ../../concord_core
 
@@ -32,12 +35,15 @@ dependencies:
 
   concord_ui:
     path: ../../concord_ui
+  
+  firebase_auth: 3.3.4
+  firebase_core: 1.10.6
 
   flutter:
     sdk: flutter
 
   get_it: 7.2.0
-  hive_flutter: 1.1.0 
+  hive_flutter: 1.1.0
 
   login:
     path: ../../features/login

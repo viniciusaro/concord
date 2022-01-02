@@ -1,5 +1,4 @@
 import 'package:chat/team_library.dart';
-import 'package:chat/team_library/chat_list_item.dart';
 
 import 'chat_list_state.dart';
 

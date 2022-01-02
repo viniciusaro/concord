@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/exceptions.dart';
 import 'package:dio/dio.dart';
 
 extension ApiErrorX<T> on ApiError<T> {

@@ -1,4 +1,4 @@
-import 'package:concord_ui/concord_ui.dart';
+import 'package:concord_ui/global.dart';
 
 class ChatListItem extends StatelessWidget {
   final VoidCallback onTap;

@@ -1,6 +1,6 @@
-import 'package:concord_arch/concord_arch.dart';
-import 'package:concord_core/concord_core.dart';
 import 'package:chat/data.dart';
+import 'package:concord_arch/concord_arch.dart';
+import 'package:concord_foundation/types.dart';
 
 import 'chat_input_event.dart';
 import 'chat_input_state.dart';

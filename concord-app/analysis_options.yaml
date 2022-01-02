@@ -10,9 +10,13 @@ analyzer:
   strong-mode:
     implicit-casts: false
   errors:
+    depend_on_referenced_packages: error
     implementation_imports: error
     unnecessary_cast: ignore
 
 linter:
   rules:
     - cancel_subscriptions    
+    - depend_on_referenced_packages
+    - directives_ordering
+    - sort_pub_dependencies

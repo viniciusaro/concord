@@ -1,13 +1,17 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:concord_foundation/serialization.dart';
+import 'package:concord_foundation/types.dart';
+
 import 'package:dio/dio.dart';
-import 'package:concord_foundation/concord_foundation.dart';
 import 'package:networking/src/errors.dart';
 
 import 'api_client.dart';
 import 'http_method.dart';
 import 'target.dart';
+
+export 'api_client.dart';
 
 class ApiClientImpl with ApiClient {
   final Dio _dio;

@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:flutter/foundation.dart';
 
 import 'key_value_storage.dart';
 

@@ -1,5 +1,6 @@
-import 'package:concord_core/concord_core.dart';
-import 'package:concord_ui/concord_ui.dart';
+import 'package:concord_core/shared_models.dart';
+import 'package:concord_foundation/di.dart';
+import 'package:concord_ui/global.dart';
 
 import 'modules/root/root_module.dart';
 

@@ -1,4 +1,4 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_foundation/serialization.dart';
 
 import 'chat_message_type.dart';
 

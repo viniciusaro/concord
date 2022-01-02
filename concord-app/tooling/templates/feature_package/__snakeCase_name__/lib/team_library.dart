@@ -1,3 +1,3 @@
 library team_library;
 
-export 'package:{{ $org }}_ui/{{ $org }}_ui.dart';
+export 'package:{{ $org }}_ui/global.dart';

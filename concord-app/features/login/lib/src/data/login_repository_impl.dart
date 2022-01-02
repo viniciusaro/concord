@@ -1,4 +1,6 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_core/auth.dart';
+import 'package:concord_core/shared_models.dart';
+import 'package:concord_foundation/types.dart';
 
 import 'login_repository.dart';
 

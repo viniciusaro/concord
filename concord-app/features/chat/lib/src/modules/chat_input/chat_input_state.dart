@@ -1,4 +1,5 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/serialization.dart';
+import 'package:concord_foundation/types.dart';
 
 part 'chat_input_state.freezed.dart';
 

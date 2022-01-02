@@ -1,4 +1,4 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_core/shared_models.dart';
 import 'package:login/data.dart';
 
 import 'login_otp_provider.dart';

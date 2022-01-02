@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:concord_arch/concord_arch.dart';
 import 'package:chat/data.dart';
+import 'package:concord_arch/concord_arch.dart';
 
 import 'chat_event.dart';
 import 'chat_state.dart';

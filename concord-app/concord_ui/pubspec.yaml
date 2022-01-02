@@ -12,21 +12,15 @@ dependencies:
   flutter:
     sdk: flutter
 
-  global_library:
-    path: global_library
-
-  networking:
-    path: ../concord_core/networking
+  global:
+    path: global
   
-  scaffold_library:
-    path: scaffold_library
+  scaffold:
+    path: scaffold
 
-  storage:
-    path: ../concord_core/storage
-
-  token_library:
-    path: token_library
-
+  tokens:
+    path: tokens
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

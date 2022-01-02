@@ -1,4 +1,4 @@
-import 'package:concord_core/concord_core.dart';
+import 'package:concord_foundation/exceptions.dart';
 
 import 'models/chat.dart';
 import 'models/chat_message.dart';

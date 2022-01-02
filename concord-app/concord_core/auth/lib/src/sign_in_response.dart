@@ -1,4 +1,4 @@
-import 'package:concord_foundation/concord_foundation.dart';
+import 'package:concord_foundation/serialization.dart';
 
 part 'sign_in_response.freezed.dart';
 part 'sign_in_response.g.dart';
