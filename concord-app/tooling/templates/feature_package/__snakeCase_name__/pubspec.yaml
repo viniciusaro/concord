@@ -12,11 +12,14 @@ dependencies:
   {{ $org }}_arch:
     path: ../../{{ $org }}_arch
 
-  {{ $org }}_core:
-    path: ../../{{ $org }}_core
+  {{ $org }}_foundation:
+    path: ../../{{ $org }}_foundation
 
-  {{ $org }}_ui:
-    path: ../../{{ $org }}_ui
+  {{ snakeCase name }}_data:
+    path: {{ snakeCase name }}_data
+
+  {{ snakeCase name }}_team_library:
+    path: {{ snakeCase name }}_team_library
 
   flutter:
     sdk: flutter

@@ -1,4 +1,4 @@
-import 'package:{{ $package }}/team_library.dart';
+import 'package:{{ $package }}_team_library/{{ $package }}_team_library.dart';
 
 import '{{ snakeCase name }}_state.dart';
 

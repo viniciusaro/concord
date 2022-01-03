@@ -1,5 +1,5 @@
 import 'package:{{ $org }}_arch/{{ $org }}_arch.dart';
-import 'package:{{ $package }}/data.dart';
+import 'package:{{ $package }}_data/{{ $package }}_data.dart';
 
 import '{{ snakeCase name }}_event.dart';
 import '{{ snakeCase name }}_state.dart';

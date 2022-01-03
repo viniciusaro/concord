@@ -1,7 +1,7 @@
-name: chat
+name: {{ snakeCase name }}_data
 description: A new Flutter package project.
 version: 0.0.1
-homepage: "www.concord.com.br"
+homepage: "www.{{ $org }}.com.br"
 publish_to: none
 
 environment:
@@ -9,17 +9,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  concord_arch:
-    path: ../../concord_arch
+  {{ $org }}_core:
+    path: ../../../{{ $org }}_core
 
-  concord_foundation:
-    path: ../../concord_foundation
-
-  chat_data:
-    path: chat_data
-
-  chat_team_library:
-    path: chat_team_library
+  {{ $org }}_foundation:
+    path: ../../../{{ $org }}_foundation
 
   flutter:
     sdk: flutter

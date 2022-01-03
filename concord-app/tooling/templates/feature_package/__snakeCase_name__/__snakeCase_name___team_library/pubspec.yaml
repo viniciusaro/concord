@@ -1,0 +1,23 @@
+name: {{ snakeCase name }}_team_library
+description: A new Flutter package project.
+version: 0.0.1
+homepage: "www.{{ $org }}.com.br"
+publish_to: none
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  {{ $org }}_ui:
+    path: ../../../{{ $org }}_ui
+  
+  {{ snakeCase name }}_data:
+    path: ../{{ snakeCase name }}_data
+
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

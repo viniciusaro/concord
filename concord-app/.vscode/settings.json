@@ -18,7 +18,8 @@
         "**/.idea": true,
     },
     "files.watcherExclude": {
-        "**/.fvm": true
+        "**/.fvm": true,
+        "tooling/**": true
     },
     "search.exclude": {
         "**/.fvm": true,
