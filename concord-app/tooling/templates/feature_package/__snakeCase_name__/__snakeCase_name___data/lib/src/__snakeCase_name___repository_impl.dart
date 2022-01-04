@@ -5,7 +5,7 @@ export '{{ snakeCase name }}_repository.dart';
 
 class {{ pascalCase name }}RepositoryImpl implements {{ pascalCase name }}Repository {
   @override
-  Stream<{{ pascalCase name }}> {{camelCase name}}() {
+  Stream<{{ pascalCase name }}> {{ camelCase name }}() {
     throw UnimplementedError();
   }
 }

@@ -9,11 +9,11 @@ import '{{ snakeCase name }}_screen.dart';
 import '{{ snakeCase name }}_state.dart';
 
 class {{ pascalCase name }}Provider extends StatefulWidget {
-  final {{ pascalCase name }}Repository {{camelCase name}}Repository;
+  final {{ pascalCase $repo }}Repository {{ camelCase $repo }}Repository;
 
   const {{ pascalCase name }}Provider({
     Key? key,
-    required this.{{camelCase name}}Repository,
+    required this.{{ camelCase $repo }}Repository,
   }) : super(key: key);
 
   @override
@@ -26,7 +26,7 @@ class _{{ pascalCase name }}ProviderState extends State<{{ pascalCase name }}Pro
   @override
   void initState() {
     super.initState();
-    _bloc = {{ pascalCase name }}Bloc(widget.{{camelCase name}}Repository);
+    _bloc = {{ pascalCase name }}Bloc(widget.{{ camelCase $repo }}Repository);
     _bloc.add({{ pascalCase name }}EventStart());
   }
 
@@ -38,9 +38,11 @@ class _{{ pascalCase name }}ProviderState extends State<{{ pascalCase name }}Pro
         listener: (context, state) {
           //
         },
-        child: BlocBuilder<{{ pascalCase name }}Bloc, {{ pascalCase name }}State>(builder: (context, state) {
-          return {{ pascalCase name }}Screen(state: state);
-        }),
+        child: BlocBuilder<{{ pascalCase name }}Bloc, {{ pascalCase name }}State>(
+          builder: (context, state) {
+            return {{ pascalCase name }}Screen(state: state);
+          },
+        ),
       ),
     );
   }

@@ -15,6 +15,6 @@ class ChatMessageSend with _$ChatMessageSend {
   factory ChatMessageSend.fromJson(Map<String, dynamic> json) =>
       _$ChatMessageSendFromJson(json);
 
-  static Map<String, dynamic> toMap(ChatMessageSend message) =>
-      message.toJson();
+  static Map<String, dynamic> toMap(ChatMessageSend instance) =>
+      instance.toJson();
 }

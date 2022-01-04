@@ -5,9 +5,9 @@ import '{{ snakeCase name }}_event.dart';
 import '{{ snakeCase name }}_state.dart';
 
 class {{ pascalCase name }}Bloc extends Bloc<{{ pascalCase name }}Event, {{ pascalCase name }}State> {
-  final {{ pascalCase name }}Repository _{{camelCase name}}Repository;
+  final {{ pascalCase $repo }}Repository _{{ camelCase $repo }}Repository;
 
-  {{ pascalCase name }}Bloc(this._{{camelCase name}}Repository) : super({{ pascalCase name }}State());
+  {{ pascalCase name }}Bloc(this._{{ camelCase $repo }}Repository) : super({{ pascalCase name }}State());
 
   @override
   Stream<{{ pascalCase name }}State> mapEventToState({{ pascalCase name }}Event event) async* {
