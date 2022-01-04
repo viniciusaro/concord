@@ -1,5 +1,6 @@
 library login;
 
-export 'di/login_register.dart';
+export 'package:login_data/login_data.dart';
 
-export 'src/modules/login/login_module.dart';
+export 'di/login_register.dart';
+export 'src/login/login_module.dart';

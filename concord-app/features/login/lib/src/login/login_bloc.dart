@@ -1,6 +1,6 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_foundation/types.dart';
-import 'package:login/data.dart';
+import 'package:login_data/login_data.dart';
 
 import 'login_event.dart';
 import 'login_state.dart';

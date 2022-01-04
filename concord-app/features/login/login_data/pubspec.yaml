@@ -1,4 +1,4 @@
-name: login
+name: login_data
 description: A new Flutter package project.
 version: 0.0.1
 homepage: "www.concord.com.br"
@@ -9,20 +9,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  concord_arch:
-    path: ../../concord_arch
-
   concord_core:
-    path: ../../concord_core
+    path: ../../../concord_core
 
   concord_foundation:
-    path: ../../concord_foundation
-
-  login_data:
-    path: login_data
-
-  login_team_library:
-    path: login_team_library
+    path: ../../../concord_foundation
 
   flutter:
     sdk: flutter

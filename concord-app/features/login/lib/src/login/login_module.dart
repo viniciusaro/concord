@@ -1,5 +1,5 @@
 import 'package:concord_core/shared_models.dart';
-import 'package:login/data.dart';
+import 'package:login_data/login_data.dart';
 
 import '../login_otp/login_otp_module.dart';
 import 'login_provider.dart';

@@ -1,17 +1,17 @@
-import 'package:login/team_library.dart';
+import 'package:login_team_library/login_team_library.dart';
 
-import 'login_otp_state.dart';
+import 'login_state.dart';
 
-class LoginOtpScreen extends StatelessWidget {
-  final LoginOtpState state;
+class LoginScreen extends StatelessWidget {
+  final LoginState state;
   final TextEditingController textFieldController;
-  final VoidCallback onOtpButtonTapped;
+  final VoidCallback onLoginButtonTapped;
 
-  const LoginOtpScreen({
+  const LoginScreen({
     Key? key,
     required this.state,
     required this.textFieldController,
-    required this.onOtpButtonTapped,
+    required this.onLoginButtonTapped,
   }) : super(key: key);
 
   @override
@@ -26,8 +26,8 @@ class LoginOtpScreen extends StatelessWidget {
             controller: textFieldController,
           ),
           ConcordActionButton(
-            title: "Enviar",
-            onTap: onOtpButtonTapped,
+            title: "Entrar",
+            onTap: onLoginButtonTapped,
             loading: state.submitting,
           ),
           const SafeArea(child: SizedBox(), top: false),

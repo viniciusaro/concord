@@ -1,6 +1,5 @@
 import 'package:chat/chat.dart';
 import 'package:concord_core/shared_models.dart';
-import 'package:login/data.dart';
 import 'package:login/login.dart';
 
 import 'root_provider.dart';
