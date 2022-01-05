@@ -6,19 +6,17 @@ import 'package:concord_core/networking.dart';
 import 'package:concord_core/realtime.dart';
 import 'package:concord_core/storage.dart';
 import 'package:concord_foundation/di.dart';
-import 'package:concord_foundation/exceptions.dart';
 import 'package:concord_ui/global.dart';
 import 'package:get_it/get_it.dart';
 import 'package:login/login.dart';
 
+import 'main_definitions.dart';
 import 'main_loader.dart';
 import 'main_register.dart';
 import 'splash.dart';
 
-part 'main_definitions.dart';
-
 void loadAndRun() {
-  final container = DependencyContainer(
+  final serviceLocator = ServiceLocator(
     GetIt.instance.get,
     GetIt.instance.registerFactory,
   );
@@ -27,10 +25,10 @@ void loadAndRun() {
     loadingBuilder: loadingBuilder,
     theme: theme,
     child: Splash(
-      loader: () => load(
-        container,
-        MainLoader(),
-        (result) => [
+      applicationLoader: () => load(
+        rootLoader: MainLoader(),
+        serviceLocator: serviceLocator,
+        registersBuilder: (result) => [
           MainRegister(result.user),
           AuthRegister(),
           NetworkingRegister(),
@@ -40,7 +38,7 @@ void loadAndRun() {
           StorageRegister(result.mainBox),
         ],
       ),
-      builder: (_) => container.getter<Widget>(),
+      applicationBuilder: (_) => serviceLocator.get<Widget>(),
     ),
   ));
 }

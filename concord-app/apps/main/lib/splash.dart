@@ -1,31 +1,18 @@
 import 'package:concord_ui/global.dart';
 import 'package:main/main_loader.dart';
 
-typedef InitLoader = Future<LoadResult> Function();
-typedef InitWidgetBuilder = Widget Function(LoadResult);
+typedef ApplicationLoader = Future<ApplicationLoadResult> Function();
+typedef ApplicationWidgetBuilder = Widget Function(ApplicationLoadResult);
 
-class Splash extends StatefulWidget {
-  final InitLoader loader;
-  final InitWidgetBuilder builder;
+class Splash extends StatelessWidget {
+  final ApplicationLoader applicationLoader;
+  final ApplicationWidgetBuilder applicationBuilder;
 
   const Splash({
     Key? key,
-    required this.loader,
-    required this.builder,
+    required this.applicationLoader,
+    required this.applicationBuilder,
   }) : super(key: key);
-
-  @override
-  State<Splash> createState() => _SplashState();
-}
-
-class _SplashState extends State<Splash> {
-  late Widget _widget;
-
-  @override
-  void initState() {
-    super.initState();
-    _widget = _buildOnce();
-  }
 
   Widget splashBuilder() {
     return const ConcordScaffold(
@@ -33,17 +20,13 @@ class _SplashState extends State<Splash> {
     );
   }
 
-  Widget _buildOnce() {
-    return FutureBuilder<LoadResult>(
-      future: widget.loader(),
-      builder: (_, snapshot) => snapshot.hasData
-          ? widget.builder(snapshot.requireData)
-          : splashBuilder(),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return _widget;
+    return FutureBuilder<ApplicationLoadResult>(
+      future: applicationLoader(),
+      builder: (_, snapshot) => snapshot.hasData
+          ? applicationBuilder(snapshot.requireData)
+          : splashBuilder(),
+    );
   }
 }

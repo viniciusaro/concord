@@ -30,7 +30,7 @@ packages:
     source: hosted
     version: "2.8.2"
   auth:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_core/auth"
       relative: true
@@ -128,14 +128,14 @@ packages:
     source: path
     version: "0.0.1"
   chat_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../features/chat/chat_data"
       relative: true
     source: path
     version: "0.0.1"
   chat_team_library:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../features/chat/chat_team_library"
       relative: true
@@ -247,7 +247,7 @@ packages:
     source: hosted
     version: "2.2.1"
   di:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/di"
       relative: true
@@ -261,7 +261,7 @@ packages:
     source: hosted
     version: "4.0.0"
   exceptions:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/exceptions"
       relative: true
@@ -395,7 +395,7 @@ packages:
     source: hosted
     version: "2.0.2"
   global:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_ui/global"
       relative: true
@@ -493,14 +493,14 @@ packages:
     source: path
     version: "0.0.1"
   login_data:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../features/login/login_data"
       relative: true
     source: path
     version: "0.0.1"
   login_team_library:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../features/login/login_team_library"
       relative: true
@@ -528,7 +528,7 @@ packages:
     source: hosted
     version: "1.0.1"
   navigation:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_arch/navigation"
       relative: true
@@ -542,7 +542,7 @@ packages:
     source: hosted
     version: "1.0.0"
   networking:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_core/networking"
       relative: true
@@ -661,28 +661,28 @@ packages:
     source: hosted
     version: "1.2.0"
   realtime_database:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_core/realtime_database"
       relative: true
     source: path
     version: "0.0.1"
   scaffold:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_ui/scaffold"
       relative: true
     source: path
     version: "0.0.1"
   serialization:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/serialization"
       relative: true
     source: path
     version: "0.0.1"
   shared_models:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_core/shared_models"
       relative: true
@@ -736,7 +736,7 @@ packages:
     source: hosted
     version: "1.10.0"
   storage:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_core/storage"
       relative: true
@@ -785,7 +785,7 @@ packages:
     source: hosted
     version: "1.0.0"
   tokens:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_ui/tokens"
       relative: true
@@ -799,7 +799,7 @@ packages:
     source: hosted
     version: "1.3.0"
   types:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       path: "../../concord_foundation/types"
       relative: true
