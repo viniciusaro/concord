@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ConcordLoadingProvider extends StatelessWidget {
-  final Widget child;
+class ConcordLoadingProvider extends InheritedWidget {
   final WidgetBuilder loadingBuilder;
 
   const ConcordLoadingProvider({
     Key? key,
-    required this.child,
+    required Widget child,
     required this.loadingBuilder,
-  }) : super(key: key);
+  }) : super(key: key, child: child);
 
   static ConcordLoadingProvider of(BuildContext context) {
-    return context.findAncestorWidgetOfExactType<ConcordLoadingProvider>()!;
+    return context
+        .dependOnInheritedWidgetOfExactType<ConcordLoadingProvider>()!;
   }
 
   @override
-  Widget build(BuildContext context) => child;
+  bool updateShouldNotify(covariant ConcordLoadingProvider oldWidget) {
+    return loadingBuilder != oldWidget.loadingBuilder;
+  }
 }

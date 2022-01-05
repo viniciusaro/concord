@@ -46,10 +46,10 @@ class _LoginRootProviderState extends State<LoginRootProvider> {
       child: BlocBuilder<LoginRootBloc, LoginRootState>(
         builder: (context, state) {
           return ConcordLogoutProvider(
-            child: state.isLoggedIn
-                ? widget.loggedInModuleBuilder(state.user)
-                : widget.loginModule.build(onLoggedIn: _handleLoggedIn),
             onLogoutButtonTapped: _handleLogoutButtonTap,
+            child: state.isLoggedIn
+                ? widget.loggedInModuleBuilder(state.user).asNav()
+                : widget.loginModule.build(onLoggedIn: _handleLoggedIn).asNav(),
           );
         },
       ),
@@ -62,5 +62,14 @@ class _LoginRootProviderState extends State<LoginRootProvider> {
 
   void _handleLogoutButtonTap(BuildContext context) {
     _bloc.add(LoginRootEventLogout());
+  }
+}
+
+extension on Widget {
+  Navigator asNav() {
+    return Navigator(
+      key: UniqueKey(),
+      onGenerateRoute: (_) => MaterialPageRoute(builder: (_) => this),
+    );
   }
 }
