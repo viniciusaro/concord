@@ -1,4 +1,4 @@
-name: {{ snakeCase name }}_a
+name: {{ snakeCase name }}_package_a
 description: A new Flutter package project.
 version: 0.0.1
 homepage: "www.concord.com.br"

@@ -9,14 +9,14 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
+    
   {{ $org }}_ui:
     path: ../../../{{ $org }}_ui
   
   {{ snakeCase name }}_data:
     path: ../{{ snakeCase name }}_data
-
-  flutter:
-    sdk: flutter
 
 dev_dependencies:
   flutter_test:
