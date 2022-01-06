@@ -10,15 +10,15 @@ abstract class AuthClient {
 
 abstract class AuthError extends BaseError {
   @override
-  bool get reportIfUnhandled => true;
-
-  @override
   final Object? error;
 
   AuthError(this.error);
 }
 
 class AuthProviderError extends AuthError {
+  @override
+  bool get reportIfUnhandled => true;
+
   AuthProviderError(Object error) : super(error);
 }
 
@@ -27,5 +27,8 @@ class AuthOtpError extends AuthError {
 }
 
 class AuthUnknownError extends AuthError {
+  @override
+  bool get reportIfUnhandled => true;
+  
   AuthUnknownError(Object error) : super(error);
 }

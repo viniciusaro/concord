@@ -15,14 +15,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event is LoginEventSignIn) {
       yield state.copyWith(submitting: true);
 
-      yield* _loginRepository
-          .sendOtp(event.alias)
-          .fold(
+      yield* _loginRepository.sendOtp(event.alias).fold(
             onSuccess: (_) => state.copyWith(success: TransientValue(true)),
             onError: (e) => state.copyWith(error: e),
             always: () => state.copyWith(submitting: false),
-          )
-          .debug();
+          );
     }
   }
 }
