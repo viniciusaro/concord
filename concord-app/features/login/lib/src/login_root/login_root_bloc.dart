@@ -1,5 +1,6 @@
 import 'package:concord_arch/concord_arch.dart';
 import 'package:concord_core/shared_models.dart';
+import 'package:concord_foundation/types.dart';
 import 'package:login_data/login_data.dart';
 
 import 'login_root_event.dart';
@@ -17,12 +18,10 @@ class LoginRootBloc extends Bloc<LoginRootEvent, LoginRootState> {
       yield state.copyWith(user: event.user);
     }
     if (event is LoginRootEventLogout) {
-      try {
-        final user = await _loginRepository.signOut();
-        yield state.copyWith(user: user);
-      } catch (e) {
-        yield state.copyWith(error: e);
-      }
+      yield* _loginRepository.signOut().fold(
+            onSuccess: (user) => state.copyWith(user: user),
+            onError: ((e) => state.copyWith(error: e)),
+          );
     }
   }
 }

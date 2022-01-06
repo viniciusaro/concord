@@ -9,15 +9,14 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  bloc: 7.0.0
+  flutter:
+    sdk: flutter
 
   concord_foundation:
     path: ../concord_foundation
 
-  flutter:
-    sdk: flutter
-
-  flutter_bloc: 7.0.1
+  bloc: 8.0.2
+  flutter_bloc: 8.0.1
   
   navigation:
     path: navigation
