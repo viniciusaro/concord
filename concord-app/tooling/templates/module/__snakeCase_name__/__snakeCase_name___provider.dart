@@ -1,7 +1,7 @@
-import 'package:{{ $org }}_arch/concord_arch.dart';
+import 'package:{{ snakeCase $org }}_arch/concord_arch.dart';
 
-import 'package:{{ $package }}_data/{{ $package }}_data.dart';
-import 'package:{{ $package }}_team_library/{{ $package }}_team_library.dart';
+import 'package:{{ snakeCase $package }}_data/{{ snakeCase $package }}_data.dart';
+import 'package:{{ snakeCase $package }}_team_library/{{ snakeCase $package }}_team_library.dart';
 
 import '{{ snakeCase name }}_bloc.dart';
 import '{{ snakeCase name }}_event.dart';

@@ -1,4 +1,4 @@
-import 'package:{{ $org }}_foundation/di.dart';
+import 'package:{{ snakeCase $org }}_foundation/di.dart';
 import 'package:{{ snakeCase name }}_data/{{ snakeCase name }}_data.dart';
 
 // import '../src/{{ snakeCase name }}/{{ snakeCase name }}_module.dart';

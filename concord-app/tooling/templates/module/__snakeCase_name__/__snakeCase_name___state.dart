@@ -1,4 +1,4 @@
-import 'package:{{ $org }}_foundation/serialization.dart';
+import 'package:{{ snakeCase $org }}_foundation/serialization.dart';
 
 part '{{ snakeCase name }}_state.freezed.dart';
 

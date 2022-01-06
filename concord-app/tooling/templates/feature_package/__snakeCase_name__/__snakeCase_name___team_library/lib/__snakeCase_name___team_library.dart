@@ -1,3 +1,3 @@
 library {{ snakeCase name }}_team_library;
 
-export 'package:{{ $org }}_ui/global.dart';
+export 'package:{{ snakeCase $org }}_ui/global.dart';
