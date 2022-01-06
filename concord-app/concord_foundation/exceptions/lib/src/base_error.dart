@@ -14,3 +14,11 @@ abstract class BaseError implements Exception {
     """;
   }
 }
+
+extension ReportableError on BaseError {
+  bool get reportIfUnhandledDeep =>
+      reportIfUnhandled || (_errorAsBaseError?.reportIfUnhandledDeep ?? false);
+
+  BaseError? get _errorAsBaseError =>
+      error is BaseError ? error as BaseError : null;
+}

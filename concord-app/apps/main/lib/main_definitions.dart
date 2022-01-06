@@ -19,7 +19,7 @@ void filteredHandleUncaughtError(
   StackTrace stackTrace,
 ) {
   if (error is BaseError) {
-    if (error.reportIfUnhandled) {
+    if (error.reportIfUnhandledDeep) {
       parent.handleUncaughtError(zone, error, stackTrace);
     }
   } else {

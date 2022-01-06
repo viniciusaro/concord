@@ -6,7 +6,7 @@ import '../src/auth_interceptor.dart';
 
 class AuthRegister with Register {
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() => FirebaseAuth.instance);
     set(() => AuthInterceptor(get()));
     set(() => AuthClientImpl(get(), get()) as AuthClient);

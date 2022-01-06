@@ -21,14 +21,14 @@ class FirestoreChatResource implements ChatRealtimeResource {
     final chats = _firestore.collection(Collections.chats);
     final chatDocRef = chats.doc(id);
     final messages = chatDocRef.collection(Collections.messages);
-    final userId = await _authClient.userIdOrNull();
+    final user = await _authClient.session();
 
     yield* messages
         .orderBy(Fields.createdAt, descending: true)
         .snapshots()
         .map((query) => query.docs
             .map((message) => {
-                  ...{"user_id": userId},
+                  ...{"user_id": user.id},
                   ...message.data(),
                 })
             .map(deserializer)
@@ -42,12 +42,12 @@ class FirestoreChatResource implements ChatRealtimeResource {
     final chats = _firestore.collection(Collections.chats);
     final chatDocRef = chats.doc(id);
     final messages = chatDocRef.collection(Collections.messages);
-    final userId = await _authClient.userIdOrNull();
+    final user = await _authClient.session();
 
     await messages.add(
       {
         ...data,
-        "sender_id": userId,
+        "sender_id": user.id,
         "created_at": FieldValue.serverTimestamp(),
       },
     );

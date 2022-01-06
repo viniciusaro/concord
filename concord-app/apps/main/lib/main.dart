@@ -19,6 +19,7 @@ void loadAndRun() {
   final serviceLocator = ServiceLocator(
     GetIt.instance.get,
     GetIt.instance.registerFactory,
+    GetIt.instance.registerLazySingleton,
   );
 
   runApp(ConcordApp(
@@ -44,12 +45,9 @@ void loadAndRun() {
 }
 
 void main() {
-  runZonedGuarded(
+  runZoned(
     () {
       loadAndRun();
-    },
-    (e, s) {
-      // print("error! $e");
     },
     zoneSpecification: const ZoneSpecification(
       handleUncaughtError: filteredHandleUncaughtError,

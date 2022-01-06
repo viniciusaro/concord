@@ -13,14 +13,6 @@ class LoginRootBloc extends Bloc<LoginRootEvent, LoginRootState> {
 
   @override
   Stream<LoginRootState> mapEventToState(LoginRootEvent event) async* {
-    if (event is LoginRootEventStart) {
-      try {
-        final user = await _loginRepository.session();
-        yield state.copyWith(user: user);
-      } catch (e) {
-        yield state.copyWith(error: e);
-      }
-    }
     if (event is LoginRootEventLoggedIn) {
       yield state.copyWith(user: event.user);
     }

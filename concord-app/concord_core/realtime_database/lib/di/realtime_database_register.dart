@@ -6,7 +6,7 @@ import '../src/firestore_chat_resource.dart';
 
 class RealtimeDatabaseRegister with Register {
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() {
       final instance = FirebaseFirestore.instance;
       instance.settings = const Settings(persistenceEnabled: true);

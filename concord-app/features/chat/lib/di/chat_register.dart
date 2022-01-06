@@ -7,7 +7,7 @@ import '../src/chat_list/chat_list_module.dart';
 
 class ChatRegister with Register {
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() => ChatListModule(get(), get()));
     set(() => ChatModule(get(), get()));
     set(() => ChatInputModule(get()));

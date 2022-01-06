@@ -10,7 +10,7 @@ class MainRegister with Register {
   MainRegister(this.user);
 
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() => rootWidget(get));
   }
 

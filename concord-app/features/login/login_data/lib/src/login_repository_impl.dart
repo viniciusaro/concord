@@ -23,11 +23,11 @@ class LoginRepositoryImpl implements LoginRepository {
 
   @override
   Future<User> signOut() {
-    return _authClient.signOut();
+    return _authClient.signOut().mapError((e) => LoginRepositoryError(e));
   }
 
   @override
   Future<User> session() {
-    return _authClient.session();
+    return _authClient.session().mapError((e) => LoginRepositoryError(e));
   }
 }

@@ -7,7 +7,7 @@ import '../src/login_root/login_root_module.dart';
 
 class LoginRegister with Register {
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() => LoginModule(get(), get()));
     set(() => LoginOtpModule(get()));
     set(() => LoginRootModule(get(), get()));

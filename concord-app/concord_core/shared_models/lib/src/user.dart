@@ -2,7 +2,9 @@ import 'package:concord_foundation/serialization.dart';
 
 part 'user.freezed.dart';
 
-mixin User {}
+mixin User {
+  String? get id;
+}
 
 @freezed
 class AuthenticatedUser with User, _$AuthenticatedUser {
@@ -11,5 +13,5 @@ class AuthenticatedUser with User, _$AuthenticatedUser {
 
 @freezed
 class UnauthenticatedUser with User, _$UnauthenticatedUser {
-  factory UnauthenticatedUser() = _UnauthenticatedUser;
+  factory UnauthenticatedUser({String? id}) = _UnauthenticatedUser;
 }

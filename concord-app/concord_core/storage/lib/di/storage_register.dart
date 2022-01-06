@@ -11,7 +11,7 @@ class StorageRegister with Register {
   StorageRegister(this.mainBox);
 
   @override
-  void register(Getter get, Setter set) {
+  void register(Getter get, Setter set, SingletonSetter setSingleton) {
     set(() => StorageClientImpl(get()) as StorageClient);
     set(() => HiveKeyValueStorageImpl(mainBox) as KeyValueStorage);
   }

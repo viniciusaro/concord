@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:concord_foundation/exceptions.dart';
 import 'package:concord_foundation/serialization.dart';
 import 'package:concord_foundation/types.dart';
-
 import 'package:dio/dio.dart';
-import 'package:networking/src/errors.dart';
 
 import 'api_client.dart';
+import 'api_error.dart';
 import 'http_method.dart';
 import 'target.dart';
 
@@ -20,21 +20,25 @@ class ApiClientImpl with ApiClient {
 
   @override
   Future<T> request<T>(Target target, Deserializer<T> deserializer) {
-    return requestDataResponse(target)
+    return _dio
+        .requestData(target)
         .mapError(ApiErrorX.fromError)
         .map((response) => response.toMap())
-        .map(deserializer);
+        .map(deserializer)
+        .mapError((e) => DeserializationError("", e));
   }
 
   @override
   Future<Uint8List> requestData(Target target) {
-    return requestDataResponse(target)
+    return _dio
+        .requestData(target)
+        .mapError(ApiErrorX.fromError)
         .map((response) => response.data ?? Uint8List(0));
   }
 }
 
-extension on ApiClientImpl {
-  Future<Response<Uint8List>> requestDataResponse(Target target) {
+extension on Dio {
+  Future<Response<Uint8List>> requestData(Target target) {
     final fullPath = target.baseUrl + target.path;
 
     final options = Options(
@@ -45,25 +49,25 @@ extension on ApiClientImpl {
 
     switch (target.method) {
       case HttpMethod.get:
-        return _dio.get(
+        return get(
           fullPath,
           options: options,
           queryParameters: target.parameters as Map<String, dynamic>,
         );
       case HttpMethod.post:
-        return _dio.post(
+        return post(
           fullPath,
           data: target.parameters,
           options: options,
         );
       case HttpMethod.put:
-        return _dio.put(
+        return put(
           fullPath,
           data: target.parameters,
           options: options,
         );
       case HttpMethod.delete:
-        return _dio.delete(
+        return delete(
           fullPath,
           data: target.parameters,
           options: options,

@@ -14,14 +14,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
     if (event is LoginEventSignIn) {
       yield state.copyWith(submitting: true);
-      try {
-        await _loginRepository.sendOtp(event.alias);
-        yield state.copyWith(success: TransientValue(true));
-      } catch (e) {
-        yield state.copyWith(error: e);
-      } finally {
-        yield state.copyWith(submitting: false);
-      }
+
+      yield* _loginRepository
+          .sendOtp(event.alias)
+          .fold(
+            onSuccess: (_) => state.copyWith(success: TransientValue(true)),
+            onError: (e) => state.copyWith(error: e),
+            always: () => state.copyWith(submitting: false),
+          )
+          .debug();
     }
   }
 }

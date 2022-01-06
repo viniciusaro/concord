@@ -24,14 +24,14 @@ class ChatRepositoryImpl implements ChatRepository {
   }
 
   @override
-  Stream<List<ChatMessage>> messages(String id) {
-    return _chatRealtimeResource.documents(id, ChatMessage.fromMap);
+  Stream<List<ChatMessage>> messages(String chatId) {
+    return _chatRealtimeResource.documents(chatId, ChatMessage.fromMap);
   }
 
   @override
-  Future<void> send(String id, ChatMessageSend message) {
+  Future<void> send(String chatId, ChatMessageSend message) {
     return _chatRealtimeResource
-        .write(id, message, ChatMessageSend.toMap)
+        .write(chatId, message, ChatMessageSend.toMap)
         .mapError((e) => ChatRepositorySendError(e));
   }
 }

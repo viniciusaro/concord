@@ -36,7 +36,6 @@ class _LoginRootProviderState extends State<LoginRootProvider> {
   void initState() {
     super.initState();
     _bloc = LoginRootBloc(widget.user, widget.loginRepository);
-    _bloc.add(LoginRootEventStart());
   }
 
   @override

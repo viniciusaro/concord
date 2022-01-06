@@ -6,22 +6,26 @@ abstract class AuthClient {
   Future<User> signIn(String otp);
   Future<User> signOut();
   Future<User> session();
-  Future<String?> userIdOrNull();
 }
 
 abstract class AuthError extends BaseError {
   @override
   bool get reportIfUnhandled => true;
+
+  @override
+  final Object? error;
+
+  AuthError(this.error);
 }
 
 class AuthProviderError extends AuthError {
-  @override
-  final Object? error;
-  AuthProviderError(this.error);
+  AuthProviderError(Object error) : super(error);
+}
+
+class AuthOtpError extends AuthError {
+  AuthOtpError(Object error) : super(error);
 }
 
 class AuthUnknownError extends AuthError {
-  @override
-  final Object? error;
-  AuthUnknownError(this.error);
+  AuthUnknownError(Object error) : super(error);
 }

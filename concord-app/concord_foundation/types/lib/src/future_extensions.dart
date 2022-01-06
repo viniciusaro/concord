@@ -2,7 +2,7 @@ import 'dart:async';
 
 extension FutureX<T> on Future<T> {
   Future<T> mapError<E extends Object>(E Function(Object) map) {
-    return catchError((Object e) => throw map(e))._alsoReportInZone();
+    return catchError((Object e) => throw map(e));
   }
 
   Future<U> map<U>(U Function(T) map) {
@@ -13,13 +13,29 @@ extension FutureX<T> on Future<T> {
     return then(map);
   }
 
-  Future<T> _alsoReportInZone() async {
+  Stream<U> fold<U>({
+    U Function(T)? onSuccess,
+    U Function(Object)? onError,
+    U Function()? always,
+  }) async* {
     try {
-      return await this;
+      final data = await this;
+      final result = onSuccess?.call(data);
+      if (result != null) {
+        yield result;
+      }
     } catch (e, s) {
       final zone = Zone.current;
       zone.handleUncaughtError(e, s);
-      rethrow;
+      final result = onError?.call(e);
+      if (result != null) {
+        yield result;
+      }
+    } finally {
+      final result = always?.call();
+      if (result != null) {
+        yield result;
+      }
     }
   }
 }

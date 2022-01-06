@@ -18,7 +18,9 @@ class AuthClientImpl implements AuthClient {
 
   @override
   Future<void> sendOtp(String alias) {
-    return _api.requestData(AuthTarget.sendOtp(alias));
+    return _api
+        .requestData(AuthTarget.sendOtp(alias))
+        .mapError((e) => AuthOtpError(e));
   }
 
   @override
@@ -45,11 +47,6 @@ class AuthClientImpl implements AuthClient {
     return uid != null
         ? SynchronousFuture(AuthenticatedUser(uid))
         : SynchronousFuture(UnauthenticatedUser());
-  }
-
-  @override
-  Future<String?> userIdOrNull() {
-    return SynchronousFuture(_auth.currentUser?.uid);
   }
 }
 

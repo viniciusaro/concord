@@ -14,7 +14,11 @@ Future<T> load<T>({
   final registers = registersBuilder(result);
 
   for (final register in registers) {
-    register.register(serviceLocator.get, serviceLocator.set);
+    register.register(
+      serviceLocator.get,
+      serviceLocator.set,
+      serviceLocator.setSingleton,
+    );
   }
 
   return result;
