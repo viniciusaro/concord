@@ -6,3 +6,4 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 
 // internal
 export 'package:navigation/navigation.dart';
+export 'src/bloc_extensions.dart';

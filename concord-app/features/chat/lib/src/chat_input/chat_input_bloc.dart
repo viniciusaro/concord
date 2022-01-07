@@ -9,23 +9,19 @@ class ChatInputBloc extends Bloc<ChatInputEvent, ChatInputState> {
   final String id;
   final ChatRepository _chatRepository;
 
-  ChatInputBloc(this.id, this._chatRepository) : super(ChatInputState());
-
-  @override
-  Stream<ChatInputState> mapEventToState(ChatInputEvent event) async* {
-    if (event is ChatInputEventSend) {
-      yield state.copyWith(
+  ChatInputBloc(this.id, this._chatRepository) : super(ChatInputState()) {
+    on<ChatInputEventSend>((event, emit) {
+      emit(state.copyWith(
         loading: true,
         error: false,
         clearText: TransientValue(true),
-      );
+      ));
 
-      yield* _chatRepository
-          .send(id, ChatMessageSend(message: event.text))
-          .fold(
+      final messageSend = ChatMessageSend(message: event.text);
+      return emit.eachState(_chatRepository.send(id, messageSend).fold(
             onError: (e) => state.copyWith(error: true),
             always: () => state.copyWith(loading: false),
-          );
-    }
+          ));
+    });
   }
 }

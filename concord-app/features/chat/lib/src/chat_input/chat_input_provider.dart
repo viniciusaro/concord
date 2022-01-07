@@ -30,7 +30,6 @@ class _ChatInputProviderState extends State<ChatInputProvider> {
   void initState() {
     super.initState();
     _bloc = ChatInputBloc(widget.id, widget.chatRepository);
-    _bloc.add(ChatInputEventStart());
   }
 
   @override

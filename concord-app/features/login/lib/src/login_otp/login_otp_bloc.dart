@@ -8,20 +8,15 @@ import 'login_otp_state.dart';
 class LoginOtpBloc extends Bloc<LoginOtpEvent, LoginOtpState> {
   final LoginRepository _loginRepository;
 
-  LoginOtpBloc(this._loginRepository) : super(LoginOtpState());
+  LoginOtpBloc(this._loginRepository) : super(LoginOtpState()) {
+    on<LoginOtpEventSendOtp>((event, emit) {
+      emit(state.copyWith(submitting: true));
 
-  @override
-  Stream<LoginOtpState> mapEventToState(LoginOtpEvent event) async* {
-    if (event is LoginOtpEventSendOtp) {
-      yield state.copyWith(submitting: true);
-      try {
-        final user = await _loginRepository.signIn(event.otp);
-        yield state.copyWith(user: TransientValue(user));
-      } catch (e) {
-        yield state.copyWith(error: e);
-      } finally {
-        yield state.copyWith(submitting: false);
-      }
-    }
+      return emit.eachState(_loginRepository.signIn(event.otp).fold(
+            onSuccess: (user) => state.copyWith(user: TransientValue(user)),
+            onError: (e) => state.copyWith(error: e),
+            always: () => state.copyWith(submitting: false),
+          ));
+    });
   }
 }

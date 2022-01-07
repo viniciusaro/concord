@@ -10,18 +10,16 @@ class LoginRootBloc extends Bloc<LoginRootEvent, LoginRootState> {
   final LoginRepository _loginRepository;
 
   LoginRootBloc(User user, this._loginRepository)
-      : super(LoginRootState(user: user));
+      : super(LoginRootState(user: user)) {
+    on<LoginRootEventLoggedIn>((event, emit) {
+      emit(state.copyWith(user: event.user));
+    });
 
-  @override
-  Stream<LoginRootState> mapEventToState(LoginRootEvent event) async* {
-    if (event is LoginRootEventLoggedIn) {
-      yield state.copyWith(user: event.user);
-    }
-    if (event is LoginRootEventLogout) {
-      yield* _loginRepository.signOut().fold(
+    on<LoginRootEventLogout>((event, emit) {
+      return emit.eachState(_loginRepository.signOut().fold(
             onSuccess: (user) => state.copyWith(user: user),
             onError: ((e) => state.copyWith(error: e)),
-          );
-    }
+          ));
+    });
   }
 }
