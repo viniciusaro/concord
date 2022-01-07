@@ -6,5 +6,5 @@ class ServiceLocator {
   final Getter get;
   final Setter set;
   final SingletonSetter setSingleton;
-  ServiceLocator(this.get, this.set, this.setSingleton);
+  const ServiceLocator(this.get, this.set, this.setSingleton);
 }

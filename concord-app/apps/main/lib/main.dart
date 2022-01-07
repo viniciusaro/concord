@@ -7,13 +7,37 @@ import 'package:concord_core/realtime.dart';
 import 'package:concord_core/storage.dart';
 import 'package:concord_foundation/di.dart';
 import 'package:concord_ui/global.dart';
-import 'package:get_it/get_it.dart';
 import 'package:login/login.dart';
 
 import 'main_definitions.dart';
 import 'main_loader.dart';
 import 'main_register.dart';
 import 'splash.dart';
+
+void loadAndRun() {
+  runApp(ConcordApp<ApplicationLoadResult>(
+    splash: const Splash(),
+    loadingBuilder: loadingBuilder,
+    theme: theme,
+    applicationLoader: () => load(
+      rootLoader: MainLoader(),
+      serviceLocator: serviceLocator,
+      registersBuilder: (result) => [
+        // application
+        MainRegister(result.user),
+        // core libraries
+        AuthRegister(),
+        NetworkingRegister(),
+        RealtimeDatabaseRegister(),
+        StorageRegister(result.mainBox),
+        // features
+        ChatRegister(),
+        LoginRegister(),
+      ],
+    ),
+    loadedApplicationBuilder: (_) => serviceLocator.get<ApplicationRoot>(),
+  ));
+}
 
 void main() {
   runZoned(
@@ -22,32 +46,4 @@ void main() {
       handleUncaughtError: filteredHandleUncaughtError,
     ),
   );
-}
-
-void loadAndRun() {
-  final serviceLocator = ServiceLocator(
-    GetIt.instance.get,
-    GetIt.instance.registerFactory,
-    GetIt.instance.registerLazySingleton,
-  );
-
-  runApp(ConcordApp(
-    splash: const Splash(),
-    loadingBuilder: loadingBuilder,
-    theme: theme,
-    applicationLoader: () => load<ApplicationLoadResult>(
-      rootLoader: MainLoader(),
-      serviceLocator: serviceLocator,
-      registersBuilder: (result) => [
-        MainRegister(result.user),
-        AuthRegister(),
-        NetworkingRegister(),
-        LoginRegister(),
-        ChatRegister(),
-        RealtimeDatabaseRegister(),
-        StorageRegister(result.mainBox),
-      ],
-    ),
-    loadedApplicationBuilder: (_) => serviceLocator.get<Widget>(),
-  ));
 }

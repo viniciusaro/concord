@@ -1,16 +1,24 @@
 import 'dart:async';
 
+import 'package:concord_foundation/di.dart';
 import 'package:concord_foundation/exceptions.dart';
 import 'package:concord_ui/global.dart';
+import 'package:get_it/get_it.dart';
 
-Widget loadingBuilder(BuildContext context) {
-  return const ConcordLoading();
-}
+///
+final serviceLocator = ServiceLocator(
+  GetIt.instance.get,
+  GetIt.instance.registerFactory,
+  GetIt.instance.registerLazySingleton,
+);
 
-ConcordTokens get theme {
-  return defaultConcordTheme;
-}
+///
+Widget loadingBuilder(BuildContext context) => const ConcordLoading();
 
+///
+final theme = defaultConcordTheme;
+
+///
 void filteredHandleUncaughtError(
   Zone self,
   ZoneDelegate parent,

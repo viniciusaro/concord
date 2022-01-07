@@ -1,10 +1,11 @@
 include: .analysis_options/flutter_lints_local.yaml
 
 analyzer:
-  exclude: 
+  exclude:
     - "build/**"
     - "**/*.g.dart"
     - "**/*.freezed.dart"
+    - "tooling/**"
   language:
     strict-raw-types: true
   strong-mode:

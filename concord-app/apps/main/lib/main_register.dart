@@ -4,6 +4,8 @@ import 'package:concord_foundation/di.dart';
 import 'package:concord_ui/global.dart';
 import 'package:login/login.dart';
 
+typedef ApplicationRoot = Widget;
+
 class MainRegister with Register {
   final User user;
 
@@ -14,7 +16,7 @@ class MainRegister with Register {
     set(() => rootWidget(get));
   }
 
-  Widget rootWidget(Getter get) {
+  ApplicationRoot rootWidget(Getter get) {
     return get<LoginRootModule>().build(
       user: user,
       loggedInModuleBuilder: (_) => get<ChatListModule>().build(),

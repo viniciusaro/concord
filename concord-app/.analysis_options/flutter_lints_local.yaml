@@ -1,5 +1,5 @@
 # https://github.com/flutter/packages/blob/master/packages/flutter_lints/lib/flutter.yaml
-include: recommended.yaml
+include: recommended_local.yaml
 
 linter:
   rules:

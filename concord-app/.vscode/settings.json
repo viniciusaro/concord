@@ -1,8 +1,5 @@
 {
     "dart.flutterSdkPath": ".fvm/flutter_sdk",
-    "dart.analysisExcludedFolders": [
-        "tooling",
-    ],
     "[dart]": {
         "editor.formatOnSave": true,
     },
