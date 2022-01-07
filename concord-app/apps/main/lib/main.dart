@@ -15,6 +15,15 @@ import 'main_loader.dart';
 import 'main_register.dart';
 import 'splash.dart';
 
+void main() {
+  runZoned(
+    () => loadAndRun(),
+    zoneSpecification: const ZoneSpecification(
+      handleUncaughtError: filteredHandleUncaughtError,
+    ),
+  );
+}
+
 void loadAndRun() {
   final serviceLocator = ServiceLocator(
     GetIt.instance.get,
@@ -23,34 +32,22 @@ void loadAndRun() {
   );
 
   runApp(ConcordApp(
+    splash: const Splash(),
     loadingBuilder: loadingBuilder,
     theme: theme,
-    child: Splash(
-      applicationLoader: () => load(
-        rootLoader: MainLoader(),
-        serviceLocator: serviceLocator,
-        registersBuilder: (result) => [
-          MainRegister(result.user),
-          AuthRegister(),
-          NetworkingRegister(),
-          LoginRegister(),
-          ChatRegister(),
-          RealtimeDatabaseRegister(),
-          StorageRegister(result.mainBox),
-        ],
-      ),
-      applicationBuilder: (_) => serviceLocator.get<Widget>(),
+    applicationLoader: () => load<ApplicationLoadResult>(
+      rootLoader: MainLoader(),
+      serviceLocator: serviceLocator,
+      registersBuilder: (result) => [
+        MainRegister(result.user),
+        AuthRegister(),
+        NetworkingRegister(),
+        LoginRegister(),
+        ChatRegister(),
+        RealtimeDatabaseRegister(),
+        StorageRegister(result.mainBox),
+      ],
     ),
+    loadedApplicationBuilder: (_) => serviceLocator.get<Widget>(),
   ));
-}
-
-void main() {
-  runZoned(
-    () {
-      loadAndRun();
-    },
-    zoneSpecification: const ZoneSpecification(
-      handleUncaughtError: filteredHandleUncaughtError,
-    ),
-  );
 }
