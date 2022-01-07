@@ -7,8 +7,6 @@ import 'concord_theme.dart';
 typedef ApplicationLoader<T> = Future<T> Function();
 typedef ApplicationWidgetBuilder<T> = Widget Function(T);
 
-/// Created as StatefulWidget to prevent FutureBuilder to rerun
-/// on application reload/hot reload.
 class ConcordApp<T> extends StatefulWidget {
   final Widget splash;
   final ApplicationLoader<T> applicationLoader;
@@ -39,6 +37,8 @@ class _ConcordAppState<T> extends State<ConcordApp<T>> {
     _applicationHostWidget = _buildOnce();
   }
 
+  /// Meant to be called once on init state to avoid widget rebuild
+  /// on application reload / hot reload.
   Widget _buildOnce() {
     return FutureBuilder<T>(
       future: widget.applicationLoader(),
