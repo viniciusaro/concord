@@ -1,6 +1,7 @@
 import 'package:auth/auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:concord_foundation/serialization.dart';
+import 'package:concord_foundation/types.dart';
 
 import 'firestore_collections.dart';
 import 'realtime_resource.dart';
@@ -26,13 +27,12 @@ class FirestoreChatResource implements ChatRealtimeResource {
     yield* messages
         .orderBy(Fields.createdAt, descending: true)
         .snapshots()
-        .map((query) => query.docs
-            .map((message) => {
-                  ...{"user_id": user.id},
-                  ...message.data(),
-                })
-            .map(deserializer)
-            .toList());
+        .map((query) => query.docs)
+        .mapEach((doc) => {
+              ...{"user_id": user.id},
+              ...doc.data(),
+            })
+        .mapEach(deserializer);
   }
 
   @override
@@ -44,12 +44,12 @@ class FirestoreChatResource implements ChatRealtimeResource {
     final messages = chatDocRef.collection(Collections.messages);
     final user = await _authClient.session();
 
-    await messages.add(
-      {
-        ...data,
-        "sender_id": user.id,
-        "created_at": FieldValue.serverTimestamp(),
-      },
-    );
+    final payload = {
+      ...data,
+      "sender_id": user.id,
+      "created_at": FieldValue.serverTimestamp(),
+    };
+
+    await messages.add(payload);
   }
 }

@@ -16,3 +16,9 @@ extension StreamX<T> on Stream<T> {
     });
   }
 }
+
+extension StreamList<T> on Stream<Iterable<T>> {
+  Stream<List<U>> mapEach<U>(U Function(T) transform) {
+    return map((list) => list.map(transform).toList());
+  }
+}
