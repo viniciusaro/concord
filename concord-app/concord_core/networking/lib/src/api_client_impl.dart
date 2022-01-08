@@ -25,7 +25,7 @@ class ApiClientImpl with ApiClient {
         .mapError(ApiErrorX.fromError)
         .map((response) => response.toMap())
         .map(deserializer)
-        .mapError((e) => DeserializationError("", e));
+        .mapError((e) => DeserializationError<T>("", e));
   }
 
   @override
