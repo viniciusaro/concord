@@ -1,6 +1,5 @@
 import 'package:concord_core/auth.dart';
 import 'package:concord_core/shared_models.dart';
-import 'package:concord_foundation/types.dart';
 
 import 'login_repository.dart';
 
@@ -13,21 +12,21 @@ class LoginRepositoryImpl implements LoginRepository {
 
   @override
   Future<void> sendOtp(String alias) {
-    return _authClient.sendOtp(alias).mapError((e) => LoginRepositoryError(e));
+    return _authClient.sendOtp(alias);
   }
 
   @override
   Future<User> signIn(String otp) {
-    return _authClient.signIn(otp).mapError((e) => LoginRepositoryError(e));
+    return _authClient.signIn(otp);
   }
 
   @override
   Future<User> signOut() {
-    return _authClient.signOut().mapError((e) => LoginRepositoryError(e));
+    return _authClient.signOut();
   }
 
   @override
   Future<User> session() {
-    return _authClient.session().mapError((e) => LoginRepositoryError(e));
+    return _authClient.session();
   }
 }

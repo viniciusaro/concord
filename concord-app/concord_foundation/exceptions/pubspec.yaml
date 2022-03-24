@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  stack_trace: 1.10.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

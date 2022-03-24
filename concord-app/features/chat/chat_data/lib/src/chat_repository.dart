@@ -10,11 +10,6 @@ abstract class ChatRepository {
   Future<void> send(String chatId, ChatMessageSend message);
 }
 
-class ChatRepositorySendError extends BaseError {
-  @override
-  bool get reportIfUnhandled => true;
-
-  @override
-  final Object? error;
-  ChatRepositorySendError(this.error);
+class ChatRepositorySendException extends BaseException {
+  ChatRepositorySendException(Object error) : super(error);
 }

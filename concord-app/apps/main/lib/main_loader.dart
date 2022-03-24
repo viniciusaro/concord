@@ -4,6 +4,10 @@ import 'package:concord_foundation/di.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+
+const _sentryDsn =
+    "https://1bc9153615994894b96c546791b38bcb@o1111186.ingest.sentry.io/6140289";
 
 class ApplicationLoadResult {
   final User user;
@@ -16,6 +20,11 @@ class MainLoader with RootLoader<ApplicationLoadResult> {
   Future<ApplicationLoadResult> load() async {
     await Firebase.initializeApp();
     await Hive.initFlutter();
+    await SentryFlutter.init((options) {
+      options.dsn = _sentryDsn;
+      options.reportSilentFlutterErrors = true;
+      options.tracesSampleRate = 1.0;
+    });
 
     final user = loadUser();
     final mainBox = await openBox();

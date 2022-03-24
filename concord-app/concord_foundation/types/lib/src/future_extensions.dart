@@ -2,7 +2,7 @@ import 'dart:async';
 
 extension FutureX<T> on Future<T> {
   Future<T> mapError<E extends Object>(E Function(Object) map) {
-    return catchError((Object e) => throw map(e));
+    return onError((Object e, s) => throw map(e));
   }
 
   Future<U> map<U>(U Function(T) map) {
@@ -13,7 +13,7 @@ extension FutureX<T> on Future<T> {
     return then(map);
   }
 
-  Stream<U> fold<U>({
+  Stream<U> eval<U>({
     U Function(T)? onSuccess,
     U Function(Object)? onError,
     U Function()? always,

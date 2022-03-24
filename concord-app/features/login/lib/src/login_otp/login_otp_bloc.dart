@@ -12,7 +12,7 @@ class LoginOtpBloc extends Bloc<LoginOtpEvent, LoginOtpState> {
     on<LoginOtpEventSendOtp>((event, emit) {
       emit(state.copyWith(submitting: true));
 
-      return emit.eachState(_loginRepository.signIn(event.otp).fold(
+      return emit.eachState(_loginRepository.signIn(event.otp).eval(
             onSuccess: (user) => state.copyWith(user: TransientValue(user)),
             onError: (e) => state.copyWith(error: e),
             always: () => state.copyWith(submitting: false),

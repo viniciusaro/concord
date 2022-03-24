@@ -18,7 +18,7 @@ class ChatInputBloc extends Bloc<ChatInputEvent, ChatInputState> {
       ));
 
       final messageSend = ChatMessageSend(message: event.text);
-      return emit.eachState(_chatRepository.send(id, messageSend).fold(
+      return emit.eachState(_chatRepository.send(id, messageSend).eval(
             onError: (e) => state.copyWith(error: true),
             always: () => state.copyWith(loading: false),
           ));

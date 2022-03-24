@@ -16,7 +16,7 @@ class LoginRootBloc extends Bloc<LoginRootEvent, LoginRootState> {
     });
 
     on<LoginRootEventLogout>((event, emit) {
-      return emit.eachState(_loginRepository.signOut().fold(
+      return emit.eachState(_loginRepository.signOut().eval(
             onSuccess: (user) => state.copyWith(user: user),
             onError: ((e) => state.copyWith(error: e)),
           ));

@@ -10,28 +10,28 @@ import 'models/chat_message_send.dart';
 export 'chat_repository.dart';
 
 class ChatRepositoryImpl implements ChatRepository {
-  final ChatRealtimeResource _chatRealtimeResource;
-  final ChatCollectionRealtimeResource _chatCollectionRealtimeResource;
+  final ChatMessageRealtimeResource _chatMessageResource;
+  final ChatListRealtimeResource _chatListResource;
 
   ChatRepositoryImpl(
-    this._chatRealtimeResource,
-    this._chatCollectionRealtimeResource,
+    this._chatMessageResource,
+    this._chatListResource,
   );
 
   @override
   Stream<List<Chat>> chats() {
-    return _chatCollectionRealtimeResource.documents(Chat.fromMap);
+    return _chatListResource.documents(Chat.fromMap);
   }
 
   @override
   Stream<List<ChatMessage>> messages(String chatId) {
-    return _chatRealtimeResource.documents(chatId, ChatMessage.fromMap);
+    return _chatMessageResource.documents(chatId, ChatMessage.fromMap);
   }
 
   @override
   Future<void> send(String chatId, ChatMessageSend message) {
-    return _chatRealtimeResource
+    return _chatMessageResource
         .write(chatId, message, ChatMessageSend.toMap)
-        .mapError((e) => ChatRepositorySendError(e));
+        .mapError((e) => ChatRepositorySendException(e));
   }
 }

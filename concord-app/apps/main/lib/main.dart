@@ -6,6 +6,7 @@ import 'package:concord_core/networking.dart';
 import 'package:concord_core/realtime.dart';
 import 'package:concord_core/storage.dart';
 import 'package:concord_foundation/di.dart';
+import 'package:concord_foundation/exceptions.dart';
 import 'package:concord_ui/global.dart';
 import 'package:login/login.dart';
 
@@ -40,8 +41,13 @@ void loadAndRun() {
 }
 
 void main() {
+  FlutterError.onError = (details) {
+    final error = FrameworkError(details.exception);
+    reportError(error, null, details.stack, handled: false);
+  };
+
   runZoned(
-    () => loadAndRun(),
+    () => Chain.capture(() => loadAndRun()),
     zoneSpecification: const ZoneSpecification(
       handleUncaughtError: filteredHandleUncaughtError,
     ),

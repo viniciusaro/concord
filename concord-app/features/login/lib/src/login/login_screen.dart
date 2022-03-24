@@ -18,20 +18,11 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConcordScaffold(
       loading: state.submitting,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          ConcordTextField(
-            autofocus: true,
-            controller: textFieldController,
-          ),
-          ConcordActionButton(
-            title: "Entrar",
-            onTap: onLoginButtonTapped,
-            loading: state.submitting,
-          ),
-          const SafeArea(child: SizedBox(), top: false),
-        ],
+      body: Flexible(
+        child: ConcordTextField(
+          autofocus: true,
+          controller: textFieldController,
+        ),
       ),
     );
   }

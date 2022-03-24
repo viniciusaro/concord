@@ -20,15 +20,15 @@ class AuthClientImpl implements AuthClient {
   Future<void> sendOtp(String alias) {
     return _api
         .requestData(AuthTarget.sendOtp(alias))
-        .mapError((e) => AuthOtpError(e));
+        .mapError((e) => AuthOtpException(e));
   }
 
   @override
   Future<User> signIn(String otp) {
     return signInWithFirebase(otp).mapError((e) {
       return e is FirebaseAuthException
-          ? AuthProviderError(e)
-          : AuthUnknownError(e);
+          ? AuthProviderException(e)
+          : AuthUnknownException(e);
     });
   }
 
@@ -36,8 +36,8 @@ class AuthClientImpl implements AuthClient {
   Future<User> signOut() {
     return _auth.signOut().map((_) => UnauthenticatedUser()).mapError((e) {
       return e is FirebaseAuthException
-          ? AuthProviderError(e)
-          : AuthUnknownError(e);
+          ? AuthProviderException(e)
+          : AuthUnknownException(e);
     });
   }
 

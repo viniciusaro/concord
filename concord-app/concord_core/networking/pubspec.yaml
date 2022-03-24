@@ -16,6 +16,7 @@ dependencies:
     path: ../auth
 
   dio: 4.0.0
+  stack_trace: 1.10.0
 
   flutter:
     sdk: flutter

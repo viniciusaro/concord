@@ -6,11 +6,10 @@ import 'realtime_resource.dart';
 
 export 'realtime_resource.dart';
 
-class FirestoreChatCollectionResource
-    implements ChatCollectionRealtimeResource {
+class FirestoreChatListResource implements ChatListRealtimeResource {
   final FirebaseFirestore _firestore;
 
-  FirestoreChatCollectionResource(this._firestore);
+  FirestoreChatListResource(this._firestore);
 
   @override
   Stream<List<T>> documents<T>(Deserializer<T> deserializer) {

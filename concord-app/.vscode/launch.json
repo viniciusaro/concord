@@ -47,7 +47,7 @@
             "name": "main",
             "cwd": "apps/main",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
         },
         {
             "name": "main (profile mode)",

@@ -4,10 +4,10 @@ import 'package:concord_foundation/types.dart';
 
 import 'package:login_data/login_data.dart';
 import 'package:login_team_library/login_team_library.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../login_otp/login_otp_module.dart';
 import 'login_bloc.dart';
-import 'login_event.dart';
 import 'login_screen.dart';
 import 'login_state.dart';
 
@@ -58,7 +58,8 @@ class _LoginProviderState extends State<LoginProvider> {
   }
 
   void _handleLoginTap() {
-    _bloc.add(LoginEventSignIn(_textFieldController.text));
+    launch("www.google.com.br");
+    // _bloc.add(LoginEventSignIn(_textFieldController.text));
   }
 
   void _handleOtpSuccess() {

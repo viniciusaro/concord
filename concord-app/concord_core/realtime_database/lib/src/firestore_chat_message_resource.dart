@@ -8,11 +8,11 @@ import 'realtime_resource.dart';
 
 export 'realtime_resource.dart';
 
-class FirestoreChatResource implements ChatRealtimeResource {
+class FirestoreChatMessageResource implements ChatMessageRealtimeResource {
   final FirebaseFirestore _firestore;
   final AuthClient _authClient;
 
-  FirestoreChatResource(this._firestore, this._authClient);
+  FirestoreChatMessageResource(this._firestore, this._authClient);
 
   @override
   Stream<List<T>> documents<T>(

@@ -7,7 +7,7 @@ import 'package:concord_foundation/types.dart';
 import 'package:dio/dio.dart';
 
 import 'api_client.dart';
-import 'api_error.dart';
+import 'api_exception.dart';
 import 'http_method.dart';
 import 'target.dart';
 
@@ -22,7 +22,7 @@ class ApiClientImpl with ApiClient {
   Future<T> request<T>(Target target, Deserializer<T> deserializer) {
     return _dio
         .requestData(target)
-        .mapError(ApiErrorX.fromError)
+        .mapError(ApiExceptionX.fromError)
         .map((response) => response.toMap())
         .map(deserializer)
         .mapError((e) => DeserializationError<T>("", e));
@@ -32,7 +32,7 @@ class ApiClientImpl with ApiClient {
   Future<Uint8List> requestData(Target target) {
     return _dio
         .requestData(target)
-        .mapError(ApiErrorX.fromError)
+        .mapError(ApiExceptionX.fromError)
         .map((response) => response.data ?? Uint8List(0));
   }
 }
