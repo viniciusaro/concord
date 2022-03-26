@@ -3,4 +3,4 @@ library chat;
 export 'package:chat_data/chat_data.dart';
 
 export 'di/chat_register.dart';
-export 'src/chat_list/chat_list_module.dart';
+export 'src/chat_alice_arch/chat_list/chat_list_module.dart';
