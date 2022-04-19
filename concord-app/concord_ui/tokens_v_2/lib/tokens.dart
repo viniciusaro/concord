@@ -1,4 +1,4 @@
-library tokens_v_2;
+library tokens;
 
 @Deprecated("Use tokens v2 instead")
 export 'package:tokens/tokens.dart' hide defaultConcordTheme, grid, colors;
