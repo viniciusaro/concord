@@ -1,4 +1,4 @@
-import 'package:scaffold/scaffold.dart';
+import 'package:concord_ui/scaffold.dart';
 
 class ConcordTextField extends StatelessWidget {
   final TextEditingController? controller;

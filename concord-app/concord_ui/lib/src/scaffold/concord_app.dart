@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:tokens/tokens.dart';
-
-import 'concord_loading_provider.dart';
-import 'concord_theme.dart';
+import 'package:concord_ui/scaffold.dart';
 
 typedef ApplicationLoader<T> = Future<T> Function();
 typedef ApplicationWidgetBuilder<T> = Widget Function(T);

@@ -1,5 +1,5 @@
+import 'package:concord_ui/tokens.dart';
 import 'package:flutter/material.dart';
-import 'package:tokens/tokens.dart';
 
 class ConcordTheme extends InheritedTheme {
   final ConcordTokens tokens;

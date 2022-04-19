@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:tokens/tokens.dart';
+import 'package:concord_ui/scaffold.dart';
 
 import 'concord_button_wireframe.dart';
-import 'concord_theme.dart';
 
 enum ConcordIconButtonStyle {
   primary,

@@ -1,10 +1,6 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
-import 'package:tokens/tokens.dart';
-
-import 'concord_padding.dart';
-import 'concord_theme.dart';
+import 'package:concord_ui/scaffold.dart';
 
 class ConcordContainer extends StatelessWidget {
   final Widget? child;

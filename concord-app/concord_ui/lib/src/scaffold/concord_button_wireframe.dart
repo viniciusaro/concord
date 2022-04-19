@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:scaffold/src/concord_loading_provider.dart';
-
-import 'concord_container.dart';
-import 'concord_padding.dart';
+import 'package:concord_ui/scaffold.dart';
 
 class ConcordButtonWireframe extends StatelessWidget {
   final Widget content;

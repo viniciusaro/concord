@@ -12,17 +12,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  global:
-    path: global
-  
-  scaffold:
-    path: scaffold
+  loading_indicator: 3.0.2
 
-  tokens:
+  serialization:
     git:
       url: git@github.com:viniciusaro/concord.git
-      path: concord-app/concord_ui/tokens
-      ref: e4ac6f8a29231bdcfac81195a99d1ae915472af5
+      path: concord-app/concord_foundation/serialization
+      ref: master
   
 dev_dependencies:
   flutter_test:
