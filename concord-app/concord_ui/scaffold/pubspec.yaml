@@ -16,8 +16,8 @@ dependencies:
     git:
       url: git@github.com:viniciusaro/concord.git
       path: concord-app/concord_ui/tokens
-      ref: master
-      
+      ref: e4ac6f8a29231bdcfac81195a99d1ae915472af5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
