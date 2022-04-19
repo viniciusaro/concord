@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'tokens.dart';
 
-final defaultConcordTheme = ConcordTokens(
+final defaultConcordThemeV2 = ConcordTokens(
   colors,
   grid,
 );
