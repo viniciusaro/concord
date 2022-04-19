@@ -17,5 +17,6 @@ clean:
 watch: 
 	sh tooling/scripts/watch.sh features
 	sh tooling/scripts/watch.sh concord_ui/tokens
+	sh tooling/scripts/watch.sh concord_ui/tokens_v_2
 	sh tooling/scripts/watch.sh concord_core/auth
 	sh tooling/scripts/watch.sh concord_core/shared_models

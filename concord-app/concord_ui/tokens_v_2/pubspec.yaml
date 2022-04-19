@@ -1,4 +1,4 @@
-name: tokens
+name: tokens_v_2
 description: A new Flutter package project.
 version: 0.0.1
 homepage: "www.concord.com.br"
@@ -16,6 +16,12 @@ dependencies:
     git:
       url: git@github.com:viniciusaro/concord.git
       path: concord-app/concord_foundation/serialization
+      ref: master
+    
+  tokens:
+    git:
+      url: git@github.com:viniciusaro/concord.git
+      path: concord/concord-app/concord_ui/tokens
       ref: master
 
 dev_dependencies:

@@ -1,0 +1,3 @@
+class PublicTokensV2 {
+  
+}
