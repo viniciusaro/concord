@@ -230,6 +230,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "8.0.1"
+  flutter_redux:
+    dependency: transitive
+    description:
+      name: flutter_redux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.9.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -506,6 +513,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  redux:
+    dependency: transitive
+    description:
+      name: redux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.0"
   scaffold:
     dependency: "direct overridden"
     description:
